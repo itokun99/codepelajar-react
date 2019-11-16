@@ -7,6 +7,7 @@ export const callFeaturedPost = (payload = {}) => {
   const sendPayload = {
     ...payload,
     params: {
+      alt: 'json',
       'max-results': 1,
       ...(payload.params && payload.params)
     }

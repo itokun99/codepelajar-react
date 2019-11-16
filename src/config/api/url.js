@@ -27,8 +27,8 @@ const production = {
 export const config = development;
 
 const baseUrl = {
-  summary: `${config.url.feed}/posts/summary?alt=json`,
-  postFeed: `${config.url.feed}/posts/default?alt=json`,
+  summary: `${config.url.feed}/posts/summary`,
+  postFeed: `${config.url.feed}/posts/default`,
   post: `${config.url.api}/blogs/${config.google.blogId}/posts`,
   page: `${config.url.api}/blogs/${config.google.blogId}/pages`
 };
