@@ -1,21 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <link rel="apple-touch-icon" href="logo192.png" />
-    <!--
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="description" content="Web site created using create-react-app" />
+  <link rel="apple-touch-icon" href="logo192.png" />
+  <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+  <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
       Only files inside the `public` folder can be referenced from the HTML.
@@ -24,20 +22,114 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>React App</title>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+  <title>React App</title>
+</head>
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+<body>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <div class='header'>
+    <div class='header__wrapper container'>
+      <div class='header__row d-flex'>
+        <div class='header-brand section' id='headerSection'>
+          <div class='widget Header' data-version='2' id='Header1'>
+            <div class='header__content'>
+              <a href='https://nextcodepelajar.blogspot.com/'>
+                <img alt='React Native' data-original-height='32' data-original-width='32'
+                  src='//3.bp.blogspot.com/-fZp4NYZhvbk/Xc2qoFMfQ8I/AAAAAAAACqk/oTMea6gAkWEfsUoBA1xXxQ2u2gJI-wrMwCK4BGAYYCw/s1600/langitmusik.png'
+                  srcset='//3.bp.blogspot.com/-fZp4NYZhvbk/Xc2qoFMfQ8I/AAAAAAAACqk/oTMea6gAkWEfsUoBA1xXxQ2u2gJI-wrMwCK4BGAYYCw/w120/langitmusik.png 120w, //3.bp.blogspot.com/-fZp4NYZhvbk/Xc2qoFMfQ8I/AAAAAAAACqk/oTMea6gAkWEfsUoBA1xXxQ2u2gJI-wrMwCK4BGAYYCw/w240/langitmusik.png 240w, //3.bp.blogspot.com/-fZp4NYZhvbk/Xc2qoFMfQ8I/AAAAAAAACqk/oTMea6gAkWEfsUoBA1xXxQ2u2gJI-wrMwCK4BGAYYCw/w480/langitmusik.png 480w, //3.bp.blogspot.com/-fZp4NYZhvbk/Xc2qoFMfQ8I/AAAAAAAACqk/oTMea6gAkWEfsUoBA1xXxQ2u2gJI-wrMwCK4BGAYYCw/w640/langitmusik.png 640w, //3.bp.blogspot.com/-fZp4NYZhvbk/Xc2qoFMfQ8I/AAAAAAAACqk/oTMea6gAkWEfsUoBA1xXxQ2u2gJI-wrMwCK4BGAYYCw/w800/langitmusik.png 800w' />
+                <h2 class='header__title'>React Native</h2>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class='navigation section' id='navigationSection'>
+          <div class='widget LinkList' data-version='2' id='LinkList1'>
+            <div class='navigation__wrapper'>
+              <nav class='navigation__content'>
+                <ul class='navigation__order'>
+                  <li class='navigation__list'>
+                    <a class='navigation__item' href='#'>
+                      FAQ
+                    </a>
+                  </li>
+                  <li class='navigation__list'>
+                    <a class='navigation__item' href='#'>
+                      Navigation
+                    </a>
+                  </li>
+                  <li class='navigation__list'>
+                    <a class='navigation__item' href='#'>
+                      Profile
+                    </a>
+                  </li>
+                  <li class='navigation__list'>
+                    <a class='navigation__item' href='#'>
+                      Home
+                    </a>
+                  </li>
+                  <li class='navigation__list'>
+                    <a class='navigation__item' href='#'>
+                      About US
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+        <div class='search-field section' id='searchFieldSection'>
+          <div class='widget BlogSearch' data-version='2' id='BlogSearch1'>
+            <form action='https://nextcodepelajar.blogspot.com/search' class='search-field__form' target='_top'>
+              <div class='search-field__search-input search-input'>
+                <input aria-label='Cari blog ini' autocomplete='off' class='search-field__input-text' name='q'
+                  placeholder='Cari blog ini' value='' />
+                <span class='search-field__icon-search'>
+                </span>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Posts -->
+  <div class='main-content'>
+    <!-- BANNER -->
+    <div class='hero-banner section' id='HeroBanner'>
+      <div class='widget HTML' data-version='2' id='HTML1'>
+        <div class='hero-banner__wrapper container'>
+          <div class='hero-banner__row'>
+            <div class='hero-banner__text-content'>
+              <div class='hero-banner__text-content-inner'>
+                <h1 class='hero-banner__headline'>Code Pelajar</h1>
+                <p class='hero-banner__subheadline'>Fundamental Programming.</p>
+                <a class='hero-banner__button' href='https://www.codepelajar.com'>See All</a>
+              </div>
+            </div>
+            <div class='hero-banner__image-content'>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class='home-featured no-items section' id='FeaturedPost'>
+      <div id='HomeFeaturedPost'></div>
+    </div>
+    <div class='main-content__wrapper container'>
+      <div class='main-content__row'>
+        <div class='content main-content__left'>
+          <div class='content__inner section' id='Blog'>
+            <div class='widget Blog' data-version='2' id='Blog1'>
+            </div>
+          </div>
+        </div>
+        <div class='sidebar main-content__right'>
+          <div class='sidebar__inner no-items section' id='Sidebar'>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
-  </body>
 </html>
