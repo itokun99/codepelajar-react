@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { FeaturePost } from 'containers';
 import elements from './elements';
 import './index.css';
+import './assets/scss/index.scss';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(<FeaturePost />, elements.HOME_FEATURED_POST);

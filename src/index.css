@@ -163,6 +163,11 @@ i {
 	box-sizing: border-box;
 	padding: 0
 }
+
+a { 
+	text-decoration: none;
+}
+
 a,
 a:hover {
 	color: #000
