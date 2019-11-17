@@ -2,6 +2,8 @@
 import _ from 'lodash';
 import dummyFeaturePost from './featuredPost';
 
+
+export const blogId = _.get(window, '_WidgetManager._GetAllData().blog.blogId', '5624631557745671504');
 export const elementId = name => document.getElementById(name);
 export const isLocalhost = window.location.origin.indexOf('localhost') !== -1;
 
