@@ -14,6 +14,7 @@ const registerComponent = [
 registerComponent.forEach(app => {
   const Component = app.component;
   const el = app.element;
+  console.log('asdadsasa')
   if(el) {
     return ReactDOM.render(<Component />, el);
   }
