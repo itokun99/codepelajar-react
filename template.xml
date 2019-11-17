@@ -130,16 +130,8 @@
 => License: Creative Commons Atribucion-NoComercial 4.0 Internacional
 => License URI: http://creativecommons.org/licenses/by-nc/4.0/
 */
-]]></b:skin>
 
-<b:if cond='data:view.isLayoutMode'>
-<b:template-skin><![CDATA[ 
-/* => Your Layout Styles */
-]]></b:template-skin>
-</b:if>
-<link href='https://raw.githack.com/itokun99/codepelajar-react/master/release/build/static/css/main.css' rel='stylesheet' type='text/css'/>
-  <style>
-  .sidebar__section {
+.sidebar__section {
     width: 30%;
     padding: 14px;
 }
@@ -153,19 +145,79 @@
     display: none;
 }
 
-<!-- banner -->
-.o-banner {
+#footer .o-footer-wrap {
+    background: #20232a;
+    padding: 40px 0;
+    color: #fff;
+}
+
+#footer .o-brand-logo {
+    width: 50%;
+    padding: 14px;
+}
+
+#footer .o-widget-navlink {
+    width: 50%;
+    padding: 14px;
+}
+
+#footer .m-copyright {
     width: 100%;
-    padding: 23px;
+    padding: 14px;
+}
+
+.footer_brand, .o-brand-logo__title {
+  padding:14px
+}
+
+#footerWidget img {
+    width: 230px;
+    max-width: 125px;
+    height: 120px;
+    max-height: 120px;
+    min-height: 120px;
     position: relative;
 }
 
-.o-banner__item {
-    padding: 23px;
-    background: #ddd;
-    text-align: center;
+/*Social Link*/
+.m-social-links {
+    list-style: none;
+    padding: 0px;
+    margin: 0;
 }
-  </style>
+
+.m-social-links li {
+    display: inline-block;
+}
+
+.m-social-links li a {
+    display: block;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #333;
+    padding-top: 13px;
+    color: #fff;
+    text-align: center;
+    margin-right: 8px;
+}
+
+.m-social-links li a svg {
+    max-width: 24px;
+    width: 24px;
+    height: 24px;
+    max-height:24px;
+    min-height:24px;
+}
+]]></b:skin>
+
+<b:if cond='data:view.isLayoutMode'>
+<b:template-skin><![CDATA[ 
+/* => Your Layout Styles */
+]]></b:template-skin>
+</b:if>
+<link href='https://raw.githack.com/itokun99/codepelajar-react/master/release/build/static/css/main.css' rel='stylesheet' type='text/css'/>
+
 </head>
 
 <body>
@@ -179,7 +231,7 @@
         <b:widget id='Header1' locked='true' title='Website Title (Header)' type='Header' visible='true'>
           <!-- HEADER WIDGET SETTING -->
           <b:widget-settings>
-            <b:widget-setting name='displayUrl'>http://3.bp.blogspot.com/-fZp4NYZhvbk/Xc2qoFMfQ8I/AAAAAAAACqk/oTMea6gAkWEfsUoBA1xXxQ2u2gJI-wrMwCK4BGAYYCw/s1600/langitmusik.png</b:widget-setting>
+            <b:widget-setting name='displayUrl'>https://1.bp.blogspot.com/-DJNsuK4bhvY/XdFuH93-vQI/AAAAAAAAEiw/Oy59vfoCfK4eqdNzSDFFBrgTAx18b5vvwCK4BGAYYCw/s1600/codepelajar-logo.png</b:widget-setting>
             <b:widget-setting name='displayHeight'>32</b:widget-setting>
             <b:widget-setting name='sectionWidth'>790</b:widget-setting>
             <b:widget-setting name='useImage'>true</b:widget-setting>
@@ -215,7 +267,7 @@
           </b:includable>
           <b:includable id='image'>
             <!-- HEADER IMAGE -->
-              <b:include data='{image: data:image, altText: data:blog.title.escaped, originalWidth: data:width,  originalHeight: data:height, selector: ".logo-component"                 }' name='responsiveImage'/>
+              <b:include data='{image: data:image, altText: data:blog.title.escaped, originalWidth: data:width,  originalHeight: data:height, selector: ".logo-component"}' name='responsiveImage'/>
           </b:includable>
           <b:includable id='title'>
             <!-- HEADER TITLE -->
@@ -872,21 +924,68 @@ var disqus_blogger_canonical_homepage_url = "<data:blog.canonicalHomepageUrl/>";
     </div>
   </div>
 <footer id="footer">
-  <div class="container">
-    <div class="d-flex">
-      <div class="o-brand-logo">
-        Brand Logo
-      </div>
-      <div class="o-widget-navlink">
-        NavLink
-      </div>
-      <div class="m-copyright">
-        <div class="d-flex">
-          <div class="m-sponsored">
-            sponsored
+  <div class="o-footer-wrap">
+    <div class="container">
+      <div class="d-flex" style="flex-wrap:wrap;">
+        <div class="o-brand-logo">
+          <div class="o-brand-logo__img">
+            <div class="d-flex">
+              <b:section name="Footer Brand" class="footer__brand" id="footerWidget">
+                <b:widget id='Image1' locked='false' title='' type='Image' visible='true'>
+                  <b:widget-settings>
+                    <b:widget-setting name='displayUrl'>http://1.bp.blogspot.com/-DJNsuK4bhvY/XdFuH93-vQI/AAAAAAAAEiw/Oy59vfoCfK4eqdNzSDFFBrgTAx18b5vvwCK4BGAYYCw/s790/codepelajar-logo.png</b:widget-setting>
+                    <b:widget-setting name='displayHeight'>480</b:widget-setting>
+                    <b:widget-setting name='sectionWidth'>790</b:widget-setting>
+                    <b:widget-setting name='shrinkToFit'>true</b:widget-setting>
+                    <b:widget-setting name='displayWidth'>480</b:widget-setting>
+                    <b:widget-setting name='link'/>
+                    <b:widget-setting name='caption'/>
+                  </b:widget-settings>
+                  <b:includable id='content'>
+                    <div class='o-brand-logo__widget'>
+                      <b:tag cond='data:link' expr:href='data:link' name='a'>
+                        <img expr:alt='data:title' expr:height='data:height' expr:id='data:widget.instanceId + &quot;_img&quot;' expr:src='data:sourceUrl' expr:width='data:width'>
+                          <b:attr cond='data:sourceSet' expr:value='data:sourceSet' name='srcset'/>
+                        </img>
+                      </b:tag>
+                      <br/>
+                      <b:if cond='data:caption'>
+                        <span class='caption'><data:caption/></span>
+                      </b:if>
+                    </div>
+                  </b:includable>
+                  <b:includable id='main'>
+                    <b:include name='content'/>
+                  </b:includable>
+                </b:widget>
+              </b:section>
+              <div class="o-brand-logo__title">
+                <b><data:blog.title/></b>
+                <p>Situs <i>Coder Blogging</i> yang menyediakan tutorial seputar Blog, Coding, dan Editing.
+                Belajar Fundamental Programming disinlah tempatnya!</p>
+              </div>
+            </div>
           </div>
-          <div class="m-credit-footer">
-            credit footer
+          <div class="o-brand-logo__social">
+            <ul class="m-social-links">
+              <li><a href="#"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 410.155 410.155" style="enable-background:new 0 0 410.155 410.155;" xml:space="preserve" width="50" height="50"><path style="fill:#FFFF;" d="M403.632,74.18c-9.113,4.041-18.573,7.229-28.28,9.537c10.696-10.164,18.738-22.877,23.275-37.067l0,0c1.295-4.051-3.105-7.554-6.763-5.385l0,0c-13.504,8.01-28.05,14.019-43.235,17.862c-0.881,0.223-1.79,0.336-2.702,0.336c-2.766,0-5.455-1.027-7.57-2.891c-16.156-14.239-36.935-22.081-58.508-22.081c-9.335,0-18.76,1.455-28.014,4.325c-28.672,8.893-50.795,32.544-57.736,61.724c-2.604,10.945-3.309,21.9-2.097,32.56c0.139,1.225-0.44,2.08-0.797,2.481c-0.627,0.703-1.516,1.106-2.439,1.106c-0.103,0-0.209-0.005-0.314-0.015c-62.762-5.831-119.358-36.068-159.363-85.14l0,0c-2.04-2.503-5.952-2.196-7.578,0.593l0,0C13.677,65.565,9.537,80.937,9.537,96.579c0,23.972,9.631,46.563,26.36,63.032c-7.035-1.668-13.844-4.295-20.169-7.808l0,0c-3.06-1.7-6.825,0.485-6.868,3.985l0,0c-0.438,35.612,20.412,67.3,51.646,81.569c-0.629,0.015-1.258,0.022-1.888,0.022c-4.951,0-9.964-0.478-14.898-1.421l0,0c-3.446-0.658-6.341,2.611-5.271,5.952l0,0c10.138,31.651,37.39,54.981,70.002,60.278c-27.066,18.169-58.585,27.753-91.39,27.753l-10.227-0.006c-3.151,0-5.816,2.054-6.619,5.106c-0.791,3.006,0.666,6.177,3.353,7.74c36.966,21.513,79.131,32.883,121.955,32.883c37.485,0,72.549-7.439,104.219-22.109c29.033-13.449,54.689-32.674,76.255-57.141c20.09-22.792,35.8-49.103,46.692-78.201c10.383-27.737,15.871-57.333,15.871-85.589v-1.346c-0.001-4.537,2.051-8.806,5.631-11.712c13.585-11.03,25.415-24.014,35.16-38.591l0,0C411.924,77.126,407.866,72.302,403.632,74.18L403.632,74.18z"></path><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg></a></li>
+              <li><a href="#"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" width="50" height="50" viewBox="0 0 96.124 96.123" style="enable-background:new 0 0 96.124 96.123;" xml:space="preserve"><g><path d="M72.089,0.02L59.624,0C45.62,0,36.57,9.285,36.57,23.656v10.907H24.037c-1.083,0-1.96,0.878-1.96,1.961v15.803 c0,1.083,0.878,1.96,1.96,1.96h12.533v39.876c0,1.083,0.877,1.96,1.96,1.96h16.352c1.083,0,1.96-0.878,1.96-1.96V54.287h14.654 c1.083,0,1.96-0.877,1.96-1.96l0.006-15.803c0-0.52-0.207-1.018-0.574-1.386c-0.367-0.368-0.867-0.575-1.387-0.575H56.842v-9.246 c0-4.444,1.059-6.7,6.848-6.7l8.397-0.003c1.082,0,1.959-0.878,1.959-1.96V1.98C74.046,0.899,73.17,0.022,72.089,0.02z" fill="#FFFFFF"></path></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg></a></li>
+              <li><a href="#"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" width="50" height="50" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve"><g><path d="M256,0C114.615,0,0,114.615,0,256s114.615,256,256,256s256-114.615,256-256S397.385,0,256,0z M408.027,408.027 c-19.76,19.759-42.756,35.267-68.354,46.094c-6.502,2.75-13.105,5.164-19.801,7.246V423c0-20.167-6.916-35-20.75-44.5 c8.668-0.833,16.625-2,23.875-3.5s14.918-3.667,23-6.5c8.084-2.833,15.334-6.208,21.75-10.125c6.418-3.917,12.584-9,18.5-15.25 c5.918-6.25,10.875-13.333,14.875-21.25s7.168-17.417,9.5-28.5c2.334-11.083,3.5-23.292,3.5-36.625c0-25.833-8.416-47.833-25.25-66 c7.668-20,6.834-41.75-2.5-65.25l-6.25-0.75c-4.332-0.5-12.125,1.333-23.375,5.5s-23.875,11-37.875,20.5 c-19.832-5.5-40.416-8.25-61.749-8.25c-21.5,0-42,2.75-61.5,8.25c-8.833-6-17.208-10.958-25.125-14.875s-14.25-6.583-19-8 s-9.167-2.292-13.25-2.625s-6.708-0.417-7.875-0.25s-2,0.333-2.5,0.5c-9.333,23.667-10.167,45.417-2.5,65.25 c-16.833,18.167-25.25,40.167-25.25,66c0,13.333,1.167,25.542,3.5,36.625s5.5,20.583,9.5,28.5s8.958,15,14.875,21.25 s12.083,11.333,18.5,15.25s13.667,7.292,21.75,10.125s15.75,5,23,6.5s15.208,2.667,23.875,3.5c-13.667,9.333-20.5,24.167-20.5,44.5 v39.115c-7.549-2.247-14.99-4.902-22.3-7.994c-25.597-10.827-48.594-26.335-68.353-46.094 c-19.758-19.758-35.267-42.756-46.093-68.354C46.679,313.195,41,285.043,41,256s5.679-57.195,16.879-83.675 c10.827-25.597,26.335-48.594,46.093-68.353c19.758-19.759,42.756-35.267,68.353-46.093C198.805,46.679,226.957,41,256,41 s57.195,5.679,83.676,16.879c25.598,10.827,48.594,26.335,68.354,46.093c19.758,19.758,35.266,42.756,46.092,68.353 C465.32,198.805,471,226.957,471,256s-5.68,57.195-16.879,83.675C443.295,365.271,427.785,388.27,408.027,408.027z" fill="#FFFFFF"></path></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg></a></li>
+              <li><a href="#"><svg class="svg-inline--fa fa-youtube fa-w-18 fa-fw has-text-danger" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="youtube" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg=""><path fill="currentColor" d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"></path></svg></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="o-widget-navlink">
+          NavLink
+        </div>
+        <div class="m-copyright">
+          <div class="d-flex" style="flex-wrap:wrap">
+            <div class="m-sponsored">
+              sponsored
+            </div>
+            <div class="m-credit-footer">
+              credit footer
+            </div>
           </div>
         </div>
       </div>
