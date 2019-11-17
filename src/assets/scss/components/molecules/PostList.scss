@@ -1,0 +1,24 @@
+.m-post-list {
+  &__wrapper {
+    position: relative;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    padding-bottom: 16px;
+    border-bottom: 1px solid $grey-100;
+  }
+
+  &__image {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    margin-right: 14px;
+    background-color: $grey-100;
+  }
+
+  &__title {
+    margin: 0;
+    font-size: $font-xs;
+    color: $dark-100;
+  }
+}

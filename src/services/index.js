@@ -76,3 +76,13 @@ export const callPosts = (payload = {}) => {
       throw err;
     });
 };
+
+export const getPopularPostData = () => {
+  try {
+    const json = window.__POPULAR_POST__;
+    const data = JSON.parse(json);
+    return data;
+  } catch (err) {
+    return null;
+  }
+};
