@@ -3,7 +3,7 @@ import _ from 'lodash';
 import { View, Skeleton, Button } from 'components/atoms';
 import { PostCard } from 'components/molecules';
 import { callPosts } from 'services';
-import { isLocalhost, createAuthor } from 'utils';
+import { createAuthor } from 'utils';
 
 const dummy = {
   title: 'Dokumentasi Simpel Template Black Clover',

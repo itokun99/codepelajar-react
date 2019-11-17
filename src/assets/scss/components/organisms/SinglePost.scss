@@ -1,0 +1,47 @@
+.content.main-content__left.isPost {
+  position: fixed;
+  left: 0;
+  height: 100%;
+  margin-left: 375px;
+  min-height: 100vh;
+  overflow-y: auto;
+  width: calc(100% - 375px);
+
+  @media (max-width: $tablet) {
+    margin-left: 300px;
+    width: calc(100% - 300px);
+  }
+
+
+  @media (max-width: $small-tablet) {
+    width: 100%;
+    margin: 0;
+    position: relative;
+  }
+}
+
+.o-single-post-block {
+  &__wrapper {
+    max-width: 900px;
+    margin: 0;
+    padding: $gutter2-l $gutter-l;
+    min-height: 100vh;
+
+    @media (max-width: $phone-landscape) {
+      padding: $gutter2-l 0;
+    }
+  }
+
+  &__title {
+    font-size: $font-xxxl;
+    font-weight: bold;
+    margin: 0;
+    margin-bottom: $gutter-l;
+    padding-bottom: $gutter-m;
+    border-bottom: 1px solid $grey-100;
+
+    @media (max-width: $large-phone) {
+      font-size: $font-xxl;
+    }
+  }
+}

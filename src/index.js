@@ -1,6 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { FeaturePost, PostContainer, SidebarPopularPost } from 'containers';
+import {
+  FeaturePost,
+  PostContainer,
+  SidebarPopularPost,
+  SinglePostContainer
+} from 'containers';
 import elements from './elements';
 // import './index.css';
 import './assets/scss/index.scss';
@@ -9,7 +14,8 @@ import * as serviceWorker from './serviceWorker';
 const registerComponent = [
   { component: FeaturePost, element: elements.HOME_FEATURED_POST },
   { component: PostContainer, element: elements.HOME_POST_CONTAINER },
-  { component: SidebarPopularPost, element: elements.SIDEBAR_POPULAR_POST }
+  { component: SidebarPopularPost, element: elements.SIDEBAR_POPULAR_POST },
+  { component: SinglePostContainer, element: elements.SINGLEPOST }
 ];
 
 registerComponent.forEach(app => {

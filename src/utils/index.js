@@ -48,4 +48,15 @@ export const createAuthor = (obj = {}) => {
   };
 };
 
+// CONVER JSON TO OBJECT DATA
+
+export const parseJSON = json => {
+  try {
+    const data = JSON.parse(json);
+    return data;
+  } catch (err) {
+    throw err;
+  }
+};
+
 export { dummyFeaturePost };
