@@ -1,5 +1,5 @@
 import FeaturePost from './FeaturePost';
 import PostContainer from './PostContainer';
-import SinglePost from './SinglePost';
+import SidebarPopularPost from './SidebarPopularPost';
 
-export { FeaturePost, PostContainer, SinglePost };
+export { FeaturePost, PostContainer, SidebarPopularPost };

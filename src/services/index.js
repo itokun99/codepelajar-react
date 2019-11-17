@@ -79,7 +79,7 @@ export const callPosts = (payload = {}) => {
 
 export const getPopularPostData = () => {
   try {
-    const json = window._POPULAR_POST_;
+    const json = window.__POPULAR_POST__;
     const data = JSON.parse(json);
     return data;
   } catch (err) {
