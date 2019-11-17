@@ -550,27 +550,27 @@ article p img {
 }
 
 .bg-white {
-  background-color: #ffffff !important;
+  background-color: $light-100 !important;
 }
 
 .bg-grey {
-  background-color: #f7f7f7 !important;
+  background-color: $grey-100 !important;
 }
 
 .bg-primary {
-  color: #61dafb !important;
+  color: $bg-primary !important;
 }
 
 .text-primary {
-  color: #61dafb !important;
+  color: $bg-primary !important;
 }
 
 .text-white {
-  color: #ffffff !important;
+  color: $light-100 !important;
 }
 
 .text-dark {
-  color: #1a1a1a !important;
+  color: $dark-100 !important;
 }
 
 .text-align-center {
@@ -603,8 +603,8 @@ article p img {
 /* === HEADER SITE === */
 
 .header {
-  background-color: #20232a;
-  color: #fff;
+  background-color: $dark-100;
+  color: $light-100;
   height: 60px;
   position: fixed;
   top: 0;
@@ -615,14 +615,14 @@ article p img {
 }
 
 .header a {
-  color: #fff;
+  color: $light-100;
 }
 
 .header__title {
   margin: 0;
   font-weight: 500;
   font-size: 1.25rem;
-  color: #61dafb;
+  color: $bg-primary;
 }
 
 .header__content a {
@@ -633,7 +633,7 @@ article p img {
   margin: 0;
   font-weight: 500;
   font-size: 1.25rem;
-  color: #61dafb;
+  color: $bg-primary;
 }
 
 .navigation {
@@ -665,7 +665,7 @@ article p img {
 }
 
 .navigation__item:hover {
-  color: #61dafb;
+  color: $bg-primary;
 }
 
 .header-brand {
@@ -701,7 +701,7 @@ article p img {
 .search-field__search-input .search-field__input-text {
   width: 100%;
   background-color: rgba(255, 255, 255, 0.1);
-  color: #fff;
+  color: $light-100;
   outline: none;
   border: none;
   border-radius: 8px;
@@ -716,7 +716,7 @@ article p img {
 }
 
 .search-field__search-input .search-field__input-text::placeholder {
-  color: #ddd;
+  color: $grey-100;
 }
 
 /* === RESPONSIVE HEADER === */
@@ -733,12 +733,12 @@ article p img {
 
   .navigation {
     width: 100%;
-    background-color: #222;
+    background-color: $dark-100;
     position: fixed;
     top: 0;
     margin-top: 60px;
     left: 0;
-    background-color: #373940;
+    background-color: $dark-100;
   }
 
   .navigation__order {
@@ -798,7 +798,7 @@ article p img {
 .hero-banner__headline {
   margin: 0;
   font-size: 84px;
-  color: #61dafb;
+  color: $bg-primary;
   line-height: 1;
   margin-top: 0;
   margin-bottom: 20px;
@@ -808,7 +808,7 @@ article p img {
 .hero-banner__subheadline {
   font-size: 36px;
   line-height: 1.3;
-  color: #fff;
+  color: $light-100;
   font-weight: 500;
 }
 
@@ -823,7 +823,7 @@ article p img {
   transition: all .2s ease-out;
   max-width: 50%;
   color: #282c34;
-  background-color: #61dafb;
+  background-color: $bg-primary;
 }
 
 .hero-banner__row {

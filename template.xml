@@ -324,7 +324,7 @@
   <div class='main-content__wrapper container'>
     <div expr:class='data:view.isPost ? "main-content__row isPost" : "main-content__row"'>
     <b:if cond='!data:view.isMobile'>
-        <div expr:class='data:view.isPost ? "content main-content__left isPost" : "content main-content__left"' expr:style='!data:view.isPost ? "display: none !important" : ""'>
+        <div expr:class='data:view.isPost ? "sidebar main-content__left isPost" : "sidebar main-content__left"' expr:style='!data:view.isPost ? "display: none !important" : ""'>
             <b:section class='sidebar__inner' id='SidebarTop' name='Sidebar Top (Post only)'>
               <b:widget id='PopularPosts1' locked='true' title='Popular Post' type='PopularPosts' visible='true'>
                 <b:widget-settings>
