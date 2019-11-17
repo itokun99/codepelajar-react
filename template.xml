@@ -823,7 +823,6 @@ var disqus_blogger_canonical_homepage_url = "<data:blog.canonicalHomepageUrl/>";
               <b:if cond='data:view.isPost'>
                 
               </b:if>
-
               
 
               <!-- }} Up to this point -->
@@ -880,6 +879,28 @@ var disqus_blogger_canonical_homepage_url = "<data:blog.canonicalHomepageUrl/>";
       </div>
     </div>
   </div>
+<footer id="footer">
+  <div class="container">
+    <div class="d-flex">
+      <div class="o-brand-logo">
+        Brand Logo
+      </div>
+      <div class="o-widget-navlink">
+        NavLink
+      </div>
+      <div class="m-copyright">
+        <div class="d-flex">
+          <div class="m-sponsored">
+            sponsored
+          </div>
+          <div class="m-credit-footer">
+            credit footer
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
 </div>
 
 <!-- Google analytics -->
