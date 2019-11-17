@@ -1,3 +1,4 @@
 import FeaturePost from './FeaturePost';
+import PostContainer from './PostContainer';
 
-export { FeaturePost };
+export { FeaturePost, PostContainer };

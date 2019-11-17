@@ -1,0 +1,149 @@
+// COLOR SYSTEM
+
+$green-100:rgba(46, 204, 113, 1);
+$green-75: rgba(46, 204, 113, 0.75);
+$green-50: rgba(46, 204, 113, 0.50);
+$green-25: rgba(46, 204, 113, 0.25);
+$green-15: rgba(46, 204, 113, 0.15);
+$green-toska-100:rgba(38, 166, 154, 1);
+$green-toska-75: rgba(38, 166, 154, 0.75);
+$green-toska-50: rgba(38, 166, 154, 0.50);
+$green-toska-25: rgba(38, 166, 154, 0.25);
+$green-toska-15: rgba(38, 166, 154, 0.15);
+$blue-100:rgba(41, 121, 255, 1);
+$blue-75: rgba(41, 121, 255, 0.75);
+$blue-50: rgba(41, 121, 255, 0.50);
+$blue-25: rgba(41, 121, 255, 0.25);
+$blue-15: rgba(41, 121, 255, 0.15);
+$dark-100:rgba(40, 44, 52, 1);
+$dark-75: rgba(40, 44, 52, 0.75);
+$dark-50: rgba(40, 44, 52, 0.50);
+$dark-25: rgba(40, 44, 52, 0.25);
+$dark-15: rgba(40, 44, 52, 0.15);
+$red-100:rgba(229, 57, 53, 1);
+$red-75: rgba(229, 57, 53, 0.75);
+$red-50: rgba(229, 57, 53, 0.50);
+$red-25: rgba(229, 57, 53, 0.25);
+$red-15: rgba(229, 57, 53, 0.15);
+$light-100:rgba(255, 255, 255, 1);
+$light-75: rgba(255, 255, 255, 0.75);
+$light-50: rgba(255, 255, 255, 0.50);
+$light-25: rgba(255, 255, 255, 0.25);
+$light-15: rgba(255, 255, 255, 0.15);
+$grey-100: rgba(222, 222, 222, 1);
+$grey-75: rgba(222, 222, 222, 0.75);
+$grey-50: rgba(222, 222, 222, 0.50);
+$grey-25: rgba(222, 222, 222, 0.25);
+$grey-15: rgba(222, 222, 222, 0.15);
+$orange-100:rgba(255, 194, 51, 1);
+$orange-75:rgba(255, 194, 51, 0.75);
+$orange-50:rgba(255, 194, 51, 0.50);
+$orange-25:rgba(255, 194, 51, 0.25);
+$orange-15:rgba(255, 194, 51, 0.15);
+$cyan-100: rgba(51, 234, 255, 1);
+$cyan-75: rgba(51, 234, 255, 0.75);
+$cyan-50: rgba(51, 234, 255, 0.50);
+$cyan-25: rgba(51, 234, 255, 0.25);
+$cyan-15: rgba(51, 234, 255, 0.15);
+
+
+// THEME COLOR;
+$theme-primary: $green-toska-100;
+$theme-secondary: $blue-100;
+$bg-color: $light-100;
+$text-color: $dark-100;
+$text-dark: $dark-100;
+$text-light: $light-100;
+
+// SIGNING COLOR
+$bg-default: $grey-100;
+$bg-success: $green-100;
+$bg-primary: $theme-primary;
+$bg-secondary: $theme-secondary;
+$bg-info: $cyan-100;
+$bg-warning: $orange-100;
+$bg-danger: $red-100;
+$bg-transparent: transparent;
+
+
+// MEDIA QUERY
+$large-monitor-screen: 1440px;
+$monitor-screen: 1366px;
+$laptop: 1200px;
+$notebook: 1024px;
+$ipad: 900px;
+$tablet: 767px;
+$small-tablet: 640px;
+$phone-landscape: 525px;
+$large-phone: 480px;
+$medium-phone: 425px;
+$small-phone: 375px;
+$pocket-phone: 325px;
+
+// GUTTER
+$gutter-xl: 40px;
+$gutter-l: 32px;
+$gutter-m: 24px;
+$gutter-s: 16px;
+$gutter-xs: 8px;
+$gutter-xxs: 4px;
+$gutter-xxxs: 2px;
+
+$gutter2-xl: 50px;
+$gutter2-l: 40px;
+$gutter2-m: 30px;
+$gutter2-s: 20px;
+$gutter2-xs: 15px;
+$gutter2-xxs: 10px;
+$gutter2-xxxs: 5px;
+
+
+
+// FONT
+$global-font-1: -apple-system,
+BlinkMacSystemFont,
+"Segoe UI",
+"Roboto",
+"Oxygen",
+"Ubuntu",
+"Cantarell",
+"Fira Sans",
+"Droid Sans",
+"Helvetica Neue",
+sans-serif;
+$global-font-2: -apple-system,
+BlinkMacSystemFont,
+Segoe UI,
+Helvetica,
+Arial,
+sans-serif,
+Apple Color Emoji,
+Segoe UI Emoji,
+Segoe UI Symbol;
+$mono-font: source-code-pro,
+Menlo,
+Monaco,
+Consolas,
+"Courier New",
+monospace;
+$kbd-font: SFMono-Regular,
+Menlo,
+Monaco,
+Consolas,
+Liberation Mono,
+Courier New,
+monospace;
+
+// FONT SIZE
+$font-jumbo: 64px;
+$font-hero: 52px;
+$font-xxxl: 48px;
+$font-xxl: 32px;
+$font-xl: 28px;
+$font-l: 24px;
+$font-m: 18px;
+$font-s: 16px;
+$font-xs: 14px;
+$font-xxs: 12px;
+$font-caption: 10px;
+$font-helper: 8px;

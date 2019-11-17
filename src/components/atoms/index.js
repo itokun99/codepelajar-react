@@ -5,5 +5,6 @@ import Text from './Text';
 import Anchor from './Anchor';
 import Image from './Image';
 import Skeleton from './Skeleton';
+import Button from './Button';
 
-export { Section, Container, View, Text, Anchor, Image, Skeleton };
+export { Section, Container, View, Text, Anchor, Image, Skeleton, Button };

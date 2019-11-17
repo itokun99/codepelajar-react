@@ -1,7 +1,9 @@
 /* eslint-disable no-useless-escape */
 import _ from 'lodash';
+import dummyFeaturePost from './featuredPost';
 
 export const elementId = name => document.getElementById(name);
+export const isLocalhost = window.location.origin.indexOf('localhost') !== -1;
 
 export const resizeImage = (image, width = 400, height = 400, crop = true) => {
   const target = /\/s[0-9]+\-c/g;
@@ -20,6 +22,9 @@ export const mapFeedToFeatureData = obj => {
   return {
     title: _.get(data, 'title.$t', ''),
     description: _.get(data, 'summary.$t', ''),
-    image: resized
+    image: resized,
+    url: _.get(data, `link[${data.link.length - 1}].href`, '')
   };
 };
+
+export { dummyFeaturePost };

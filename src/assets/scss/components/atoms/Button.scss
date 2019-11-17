@@ -1,0 +1,172 @@
+@mixin buttonVariant($color) {
+  background-color: $color;
+  border-color: $color;
+
+  &:hover {
+    background-color: darken($color, 8%);
+    border-color: darken($color, 8%);
+    transition: all 0.3s ease;
+  }
+
+  &:active {
+    background-color: darken($color, 15%);
+    border-color: darken($color, 15%);
+    transition: all 0.3s ease;
+  }
+
+  &:focus {
+    box-shadow: 0 0px 8px -1px darken($color, 8%);
+    background-color: darken($color, 15%);
+    border-color: darken($color, 15%);
+  }
+}
+
+@mixin buttonSize($percent) {
+  padding: calc(#{$gutter-xs} + #{$percent}) calc(#{$gutter-m} + #{$percent});
+  font-size: calc(16px + #{$percent});
+}
+
+@mixin buttonOutline ($variant) {
+  background-color: $bg-transparent;
+  color: $variant;
+
+  &:hover {
+    color: $variant;
+  }
+}
+
+.a-button {
+  $this: a-button__element;
+
+  &__element {
+    display: inline-block;
+    padding: $gutter-xs $gutter-m;
+    background-color: transparent;
+    border-color: transparent;
+    border-width: 2px;
+    border-style: solid;
+    outline: none;
+    font-size: 16px;
+    line-height: 18px;
+
+    &--default {
+      @include buttonVariant($bg-default);
+      color: $dark-100;
+
+      &:hover {
+        color: $dark-100;
+      }
+    }
+
+    &--default#{&}--outline {
+      @include buttonOutline($bg-default);
+    }
+
+    &--success {
+      @include buttonVariant($bg-success);
+      color: $light-100;
+
+      &:hover {
+        color: $light-100;
+      }
+    }
+
+    &--success#{&}--outline {
+      @include buttonOutline($bg-success);
+    }
+
+    &--info {
+      @include buttonVariant($bg-info);
+      color: $dark-100;
+
+      &:hover {
+        color: $dark-100;
+      }
+    }
+
+    &--info#{&}--outline {
+      @include buttonOutline($bg-info);
+    }
+
+    &--danger {
+      @include buttonVariant($bg-danger);
+      color: $light-100;
+
+      &:hover {
+        color: $light-100;
+      }
+    }
+
+    &--danger#{&}--outline {
+      @include buttonOutline($bg-danger);
+    }
+
+    &--warning {
+      @include buttonVariant($bg-warning);
+      color: $light-100;
+
+      &:hover {
+        color: $light-100;
+      }
+    }
+
+    &--warning#{&}--outline {
+      @include buttonOutline($bg-warning);
+    }
+
+    &--primary {
+      @include buttonVariant($bg-primary);
+      color: $light-100;
+
+      &:hover {
+        color: $light-100;
+      }
+    }
+
+    &--primary#{&}--outline {
+      @include buttonOutline($bg-primary);
+    }
+
+    &--secondary {
+      @include buttonVariant($bg-secondary);
+      color: $light-100;
+
+      &:hover {
+        color: $light-100;
+      }
+    }
+
+    &--secondary#{&}--outline {
+      @include buttonOutline($bg-secondary);
+    }
+
+    &--small {
+      @include buttonSize(-2px)
+    }
+
+    &--large {
+      @include buttonSize(+2px)
+    }
+
+    &--radius {
+      border-radius: 100px;
+    }
+
+    &--block {
+      display: block;
+      width: 100%;
+    }
+
+    &--disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+
+      &:focus {
+        box-shadow: none;
+      }
+    }
+
+  }
+
+
+}
