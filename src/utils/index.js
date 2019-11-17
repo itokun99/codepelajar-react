@@ -27,4 +27,16 @@ export const mapFeedToFeatureData = obj => {
   };
 };
 
+export const createSearchUrl = (value = '') => `/search/label/${value}`;
+export const createAuthor = (obj = {}) => {
+  const image = _.get(obj, 'image.url', '');
+  const name = _.get(obj, 'displayName', '');
+  const id = _.get(obj, 'id', '');
+  return {
+    id,
+    name,
+    image
+  };
+};
+
 export { dummyFeaturePost };

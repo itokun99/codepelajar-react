@@ -1,0 +1,35 @@
+.o-post-block {
+  &__wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  &__row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -$gutter-xs;
+    margin-left: -$gutter-xs;
+
+    @media (max-width: $medium-phone) {
+      margin-right: -$gutter2-s;
+      margin-left: -$gutter2-s;
+    }
+  }
+
+  &__column {
+    width: 33.333333%;
+    padding-right: $gutter-xs;
+    padding-left: $gutter-xs;
+    margin-bottom: $gutter-s;
+
+    @media (max-width: $tablet) {
+      width: 50%;
+    }
+
+    @media (max-width: $medium-phone) {
+      width: 100%;
+      padding: 0;
+      margin-bottom: $gutter-l;
+    }
+  }
+}

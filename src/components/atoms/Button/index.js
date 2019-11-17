@@ -26,11 +26,12 @@ const Button = ({
     'a-button__element--radius': radius,
     'a-button__element--small': small,
     'a-button__element--large': large,
-    'a-button__element--disabled': disabled,
+    'a-button__element--disabled': disabled
   });
   if (anchor)
     return (
       <Anchor
+        // eslint-disable-next-line no-script-url
         href={disabled ? 'javascript:void(0)' : href}
         title={title}
         style={style}
@@ -68,13 +69,16 @@ Button.propTypes = {
   href: PropTypes.string,
   outline: PropTypes.bool,
   block: PropTypes.bool,
-  radius: PropTypes.radius,
+  radius: PropTypes.bool,
+  small: PropTypes.bool,
+  large: PropTypes.bool,
   variant: PropTypes.oneOf([
     'default',
     'success',
     'info',
     'warning',
     'secondary',
+    'primary'
   ]),
   disabled: PropTypes.bool
 };

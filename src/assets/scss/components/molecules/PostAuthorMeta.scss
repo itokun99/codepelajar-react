@@ -1,0 +1,16 @@
+.m-author-meta {
+  &__wrapper {
+    display: flex;
+    align-items: center;
+  }
+
+  &__image {
+    height: 30px;
+    width: 30px;
+    margin-right: $gutter-xs;
+  }
+
+  &__title {
+    font-size: $font-xs;
+  }
+}

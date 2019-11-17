@@ -1,0 +1,42 @@
+.m-post-card {
+  &__wrapper {
+    position: relative;
+    transition: all 0.5s ease;
+    background-color: $light-100;
+    overflow: hidden;
+  }
+
+  &__header {
+    position: relative;
+  }
+
+  &__image {
+    width: 100%;
+    padding-bottom: 64%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: $bg-default;
+  }
+
+  &__label-holder {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    padding: $gutter-xs $gutter-s;
+    left: 0;
+  }
+
+  &__body {
+    padding: $gutter-s;
+  }
+
+  &__title {
+    margin: 0;
+    font-size: $font-m;
+    color: $dark-100;
+  }
+
+  &__footer {
+    padding: $gutter-xs $gutter-s
+  }
+}

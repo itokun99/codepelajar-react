@@ -1,5 +1,5 @@
 import { React } from 'libraries';
-import { View, Text, Anchor, Image, Skeleton } from 'components/atoms';
+import { View, Text, Anchor, Image, Skeleton, Button } from 'components/atoms';
 import { callFeaturedPost } from 'services';
 import { isLocalhost } from 'utils';
 
@@ -137,9 +137,9 @@ class FeatureBlock extends React.PureComponent {
                 >
                   {description}
                 </Text>
-                <Anchor href={url} title={title}>
-                  Lihat detail
-                </Anchor>
+                <Button variant="primary" anchor href={url} title={title}>
+                  Read More
+                </Button>
               </React.Fragment>
             )}
           </View>

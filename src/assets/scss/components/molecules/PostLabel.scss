@@ -1,0 +1,13 @@
+.m-post-label {
+  &__wrapper {}
+
+  &__item {
+    display: inline-block;
+    padding: $gutter-xxs $gutter-xs;
+    background-color: $bg-primary;
+    font-size: $font-xxs;
+    border-radius: 4px;
+    color: $light-100;
+    transition: all .3s ease;
+  }
+}

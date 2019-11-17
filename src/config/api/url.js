@@ -1,3 +1,5 @@
+import { isLocalhost } from 'utils';
+
 const development = {
   url: {
     api: 'https://www.googleapis.com/blogger/v3',
@@ -14,9 +16,9 @@ const development = {
 const production = {
   url: {
     api: 'https://www.googleapis.com/blogger/v3',
-    feed: 'https://www.codepelajar.com/feeds',
-    asset: 'https://www.codepelajar.com',
-    origin: 'https://www.codepelajar.com'
+    feed: `${window.location.origin}/feeds`,
+    asset: window.location.origin,
+    origin: window.location.origin
   },
   google: {
     apiKey: 'AIzaSyB2MpzH-Gq6fnWuUnoI2PH2sPMTkGIQ9b0',
@@ -24,7 +26,7 @@ const production = {
   }
 };
 
-export const config = development;
+export const config = isLocalhost ? development : production;
 
 const baseUrl = {
   summary: `${config.url.feed}/posts/summary`,
