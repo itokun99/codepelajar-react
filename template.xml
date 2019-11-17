@@ -801,7 +801,7 @@ var disqus_blogger_canonical_homepage_url = "<data:blog.canonicalHomepageUrl/>";
       </div>
 
       <b:if cond='!data:view.isMobile'>
-        <div class='sidebar main-content__right'>
+        <div class='sidebar main-content__right' expr:style='!data:view.isPost ? "display: none !important" : ""'>
             <b:section class='sidebar__inner' id='SidebarTop' name='Sidebar Top (Post only)'>
               <b:widget id='PopularPosts1' locked='true' title='Popular Post' type='PopularPosts' visible='true'>
                 <b:widget-settings>
@@ -835,7 +835,9 @@ var disqus_blogger_canonical_homepage_url = "<data:blog.canonicalHomepageUrl/>";
                         ]
                       })
                     </script>
-                    <div id="singlePopularPost"></div>
+                    <b:if cond='data:view.isPost'>
+                      <div id="singlePopularPost"></div>
+                    </b:if>
                   <!-- </b:if> -->
                 </b:includable>
               </b:widget>
