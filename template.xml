@@ -367,6 +367,7 @@
               <b:if cond='data:view.isPost'>
                 <b:loop values='data:posts' var='post'>
                   <b:include name='singlePost' data='post'/>
+                   <div id='singlePostContainer'/>
                 </b:loop>
               </b:if>
 
@@ -752,11 +753,15 @@ var disqus_blogger_canonical_homepage_url = &quot;<data:blog.canonicalHomepageUr
             <b:includable id='singlePost' var='post' data="post">
               <div class='container' id='main-content'>
                    <script>
-                    window.__POSTS__ = ({
+                    window.__POSTS__ = JSON.stringify({
+                      id: "<b:eval expr='data:post.id ? data:post.id : "" '/>",
                       title: "<b:eval expr='data:post.title ? data:post.title  : "" '/>",
                       date: "<b:eval expr='data:post.date  ? data:post.date  : "" '/>",
-                      author: "<b:eval expr='data:post.author.name ? data:post.author.name : "" '/>",
-                      body: "<b:eval expr='data:post.body ? data:post.body : "" '/>"
+                      author: {
+                          name:  "<b:eval expr='data:post.author.name ? data:post.author.name : "" '/>",
+                          image: "<b:eval expr='data:post.author.authorPhoto.image ? data:post.author.authorPhoto.image : "" '/>"
+                      },
+                      body: "<b:eval expr='data:post.body ? data:post.body.jsonEscaped : "" '/>"
                     })
                     console.log(`Data Post`, window.__POSTS__);             
                   </script>
@@ -768,22 +773,10 @@ var disqus_blogger_canonical_homepage_url = &quot;<data:blog.canonicalHomepageUr
                         <span><data:post.date/></span>
                         <span><data:post.author.name/></span>
 						          </div>
-                      <!--Banner Content-->
-                      <div class="o-banner">
-                        <div class="o-banner__item">
-                          BANNER 720x90
-                        </div>
-                      </div>
                       <!--Article-->
                       <article class="o-article">
                         <data:post.body/>
                       </article>
-                    <!--Banner Content-->
-                      <div class="o-banner">
-                        <div class="o-banner__item">
-                          BANNER 720x90
-                        </div>
-                      </div>
 
                       <!--Comments-->
                       <div class="o-comments">
