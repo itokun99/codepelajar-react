@@ -1,7 +1,22 @@
 {
-  "name": "codepelajarreact",
+  "name": "codepelajar-react",
   "version": "0.1.0",
-  "private": true,
+  "description": "Code Pelajar React Blogger is Hybrid Platform theme for blogger using React",
+  "homepage": "https://www.codepelajar.com",
+  "keywords": [
+    "react-js",
+    "blogger",
+    "react",
+    "javascript",
+    "html",
+    "css"
+  ],
+  "author": "Code Pelajar",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/itokun99/codepelajar-react.git"
+  },
   "dependencies": {
     "axios": "^0.19.0",
     "classnames": "^2.2.6",

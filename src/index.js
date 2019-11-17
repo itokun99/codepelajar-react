@@ -6,8 +6,19 @@ import elements from './elements';
 import './assets/scss/index.scss';
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<FeaturePost />, elements.HOME_FEATURED_POST);
-ReactDOM.render(<PostContainer />, elements.HOME_POST_CONTAINER);
+const registerComponent = [
+  { component: FeaturePost , element: elements.HOME_FEATURED_POST },
+  { component: PostContainer , element: elements.HOME_POST_CONTAINER },
+]
+
+registerComponent.forEach(app => {
+  const Component = app.component;
+  const el = app.element;
+  if(el) {
+    return ReactDOM.render(<Component />, el);
+  }
+});
+
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

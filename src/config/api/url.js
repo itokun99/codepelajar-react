@@ -22,7 +22,8 @@ const production = {
   },
   google: {
     apiKey: 'AIzaSyB2MpzH-Gq6fnWuUnoI2PH2sPMTkGIQ9b0',
-    blogId: '3190947245348881579'
+    // blogId: '3190947245348881579'
+    blogId: '5624631557745671504' 
   }
 };
 
