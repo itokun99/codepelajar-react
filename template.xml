@@ -128,85 +128,6 @@
 => License: Creative Commons Atribucion-NoComercial 4.0 Internacional
 => License URI: http://creativecommons.org/licenses/by-nc/4.0/
 */
-
-.sidebar__section {
-    width: 30%;
-    padding: 14px;
-}
-
-.content__section {
-    width: 70%;
-    padding: 14px;
-}
-
-.o-article img:nth-child(1) {
-    display: none;
-}
-
-#footer .o-footer-wrap {
-    background: #20232a;
-    padding: 40px 0;
-    color: #fff;
-}
-
-#footer .o-brand-logo {
-    width: 50%;
-    padding: 14px;
-}
-
-#footer .o-widget-navlink {
-    width: 50%;
-    padding: 14px;
-}
-
-#footer .m-copyright {
-    width: 100%;
-    padding: 14px;
-}
-
-.footer_brand, .o-brand-logo__title {
-  padding:14px
-}
-
-#footerWidget img {
-    width: 230px;
-    max-width: 125px;
-    height: 120px;
-    max-height: 120px;
-    min-height: 120px;
-    position: relative;
-}
-
-/*Social Link*/
-.m-social-links {
-    list-style: none;
-    padding: 0px;
-    margin: 0;
-}
-
-.m-social-links li {
-    display: inline-block;
-}
-
-.m-social-links li a {
-    display: block;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background: #333;
-    padding-top: 13px;
-    color: #fff;
-    text-align: center;
-    margin-right: 8px;
-}
-
-.m-social-links li a svg {
-    max-width: 24px;
-    width: 24px;
-    height: 24px;
-    max-height:24px;
-    min-height:24px;
-}
 ]]></b:skin>
 
 <b:if cond='data:view.isLayoutMode'>
@@ -215,10 +136,6 @@
 ]]></b:template-skin>
 </b:if>
 <link href='https://raw.githack.com/itokun99/codepelajar-react/master/release/build/static/css/main.css' rel='stylesheet' type='text/css'/>
-
-</head>
-
-
 
 &lt;/head&gt;
 &lt;!-- &lt;textarea&gt;<head />&lt;/textarea&gt; --&gt;
@@ -406,7 +323,57 @@
 
   <div class='main-content__wrapper container'>
     <div expr:class='data:view.isPost ? "main-content__row isPost" : "main-content__row"'>
-      <div expr:class='data:view.isPost ? "content main-content__left isPost" : "content main-content__left"'>
+    <b:if cond='!data:view.isMobile'>
+        <div expr:class='data:view.isPost ? "content main-content__left isPost" : "content main-content__left"' expr:style='!data:view.isPost ? "display: none !important" : ""'>
+            <b:section class='sidebar__inner' id='SidebarTop' name='Sidebar Top (Post only)'>
+              <b:widget id='PopularPosts1' locked='true' title='Popular Post' type='PopularPosts' visible='true'>
+                <b:widget-settings>
+                  <b:widget-setting name='numItemsToShow'>5</b:widget-setting>
+                  <b:widget-setting name='showThumbnails'>true</b:widget-setting>
+                  <b:widget-setting name='showSnippets'>true</b:widget-setting>
+                  <b:widget-setting name='timeRange'>ALL_TIME</b:widget-setting>
+                </b:widget-settings>
+                <b:includable id='main' var='this'>
+                  <!-- <b:if cond='data:view.isPost'> -->
+                    <script>
+                      window.__POPULAR_POST__ = JSON.stringify({
+                        title: "<data:title/>",
+                        data: [
+                          <b:loop values='data:posts where (p => p.id != data:view.postId)' var='post'>
+                            {
+                              title: "<b:eval expr='data:post.title ? data:post.title : ""'/>",
+                              description: "<b:eval expr='data:post.snippets.short ? data:post.snippets.short : ""'/>",
+                              url: "<b:eval expr='data:post.url ? data:post.url : ""' />",
+                              link: "<b:eval expr='data:post.link ? data:post.link : ""'/>",
+                              thumbnailUrl: "<b:eval expr='data:post.thumbnailUrl ? data:post.thumbnailUrl : ""'/>",
+                              featuredImage: "<b:eval expr='data:post.featuredImage ? data:post.featuredImage : ""'/>",
+                              date: "<b:eval expr='data:post.date ? data:post.date : ""'/>",
+                              lastUpdated: "<b:eval expr='data:post.lastUpdated ? data:post.lastUpdated : ""'/>",
+                              author: {
+                                name: "<b:eval expr='data:post.author.name ? data:post.author.name : ""' />",
+                                url: "<b:eval expr='data:post.author.profileUrl ? data:post.author.profileUrl : ""'/>"
+                              }
+                            },
+                          </b:loop>
+                        ]
+                      })
+                    </script>
+                    <b:if cond='data:view.isPost'>
+                      <div id="singlePopularPost"></div>
+                    </b:if>
+                  <!-- </b:if> -->
+                </b:includable>
+              </b:widget>
+            </b:section>
+
+            <b:section name='Sidebar Top (Middle)' class='sidebar__inner' id='SidebarMiddle'>
+            </b:section>
+
+            <b:section name='Sidebar Top (Bottom)' class='sidebar__inner' id='SidebarBottom'>
+            </b:section>
+          </div>
+      </b:if>
+      <div expr:class='data:view.isPost ? "content main-content__right isPost" : "content main-content__right"'>
         <b:section maxwidgets='1' showaddelement='false' class='content__inner' id='Blog'>
           <b:widget id='Blog1' locked='true' title='Blog Posts' type='Blog' version='2' visible='true'>
             <b:includable id='aboutPostAuthor'><!-- disable --></b:includable>
@@ -851,57 +818,6 @@ var disqus_blogger_canonical_homepage_url = "<data:blog.canonicalHomepageUrl/>";
           </b:widget>
         </b:section>
       </div>
-
-      <b:if cond='!data:view.isMobile'>
-        <div class='sidebar main-content__right' expr:style='!data:view.isPost ? "display: none !important" : ""'>
-            <b:section class='sidebar__inner' id='SidebarTop' name='Sidebar Top (Post only)'>
-              <b:widget id='PopularPosts1' locked='true' title='Popular Post' type='PopularPosts' visible='true'>
-                <b:widget-settings>
-                  <b:widget-setting name='numItemsToShow'>5</b:widget-setting>
-                  <b:widget-setting name='showThumbnails'>true</b:widget-setting>
-                  <b:widget-setting name='showSnippets'>true</b:widget-setting>
-                  <b:widget-setting name='timeRange'>ALL_TIME</b:widget-setting>
-                </b:widget-settings>
-                <b:includable id='main' var='this'>
-                  <!-- <b:if cond='data:view.isPost'> -->
-                    <script>
-                      window.__POPULAR_POST__ = JSON.stringify({
-                        title: "<data:title/>",
-                        data: [
-                          <b:loop values='data:posts where (p => p.id != data:view.postId)' var='post'>
-                            {
-                              title: "<b:eval expr='data:post.title ? data:post.title : ""'/>",
-                              description: "<b:eval expr='data:post.snippets.short ? data:post.snippets.short : ""'/>",
-                              url: "<b:eval expr='data:post.url ? data:post.url : ""' />",
-                              link: "<b:eval expr='data:post.link ? data:post.link : ""'/>",
-                              thumbnailUrl: "<b:eval expr='data:post.thumbnailUrl ? data:post.thumbnailUrl : ""'/>",
-                              featuredImage: "<b:eval expr='data:post.featuredImage ? data:post.featuredImage : ""'/>",
-                              date: "<b:eval expr='data:post.date ? data:post.date : ""'/>",
-                              lastUpdated: "<b:eval expr='data:post.lastUpdated ? data:post.lastUpdated : ""'/>",
-                              author: {
-                                name: "<b:eval expr='data:post.author.name ? data:post.author.name : ""' />",
-                                url: "<b:eval expr='data:post.author.profileUrl ? data:post.author.profileUrl : ""'/>"
-                              }
-                            },
-                          </b:loop>
-                        ]
-                      })
-                    </script>
-                    <b:if cond='data:view.isPost'>
-                      <div id="singlePopularPost"></div>
-                    </b:if>
-                  <!-- </b:if> -->
-                </b:includable>
-              </b:widget>
-            </b:section>
-
-            <b:section name='Sidebar Top (Middle)' class='sidebar__inner' id='SidebarMiddle'>
-            </b:section>
-
-            <b:section name='Sidebar Top (Bottom)' class='sidebar__inner' id='SidebarBottom'>
-            </b:section>
-          </div>
-      </b:if>
     </div>
   </div>
 <footer id="footer">

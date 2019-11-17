@@ -1,17 +1,9 @@
 .sidebar.main-content {
-  &__right {
-    position: fixed;
-    top: 0;
+  &__left {
     padding-top: calc(#{$gutter-m} + 60px);
-    left: 0;
-    max-width: 375px;
     width: 100%;
-    height: 100%;
-    min-height: 100vh;
-    overflow-y: auto;
     border-right: 1px solid $grey-100;
-    padding-right: $gutter-m;
-    padding-left: $gutter-m;
+    background-color: $light-100;
 
     @media (max-width: $tablet) {
       max-width: 300px;
@@ -21,4 +13,9 @@
       display: none !important;
     }
   }
+}
+
+#SidebarTop {
+  position: sticky;
+  top: calc(60px + 24px);
 }

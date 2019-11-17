@@ -1,6 +1,6 @@
 import { React, moment } from 'libraries';
 import { View, Text, Anchor, Skeleton } from 'components/atoms';
-import { PostAuthorMeta } from 'components/molecules';
+import { PostAuthorMeta, DisqusComment } from 'components/molecules';
 import { parseJSON, createAuthor } from 'utils';
 import { callPostById } from 'services';
 
@@ -125,7 +125,9 @@ class SinglePostBlock extends React.Component {
             <View dangerouslySetInnerHTML={{ __html: data.content }} />
           ) : null}
         </View>
-        <View className="o-single-post-block__footer"></View>
+        <View className="o-single-post-block__footer">
+          {data && data.url ? <DisqusComment currentUrl={data.url} /> : null}
+        </View>
       </View>
     );
   }

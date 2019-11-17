@@ -10,6 +10,9 @@ const development = {
   google: {
     apiKey: 'AIzaSyB2MpzH-Gq6fnWuUnoI2PH2sPMTkGIQ9b0',
     blogId
+  },
+  disqus: {
+    shortName: 'codepelajar'
   }
 };
 
@@ -23,6 +26,9 @@ const production = {
   google: {
     apiKey: 'AIzaSyB2MpzH-Gq6fnWuUnoI2PH2sPMTkGIQ9b0',
     blogId
+  },
+  disqus: {
+    shortName: 'codepelajar'
   }
 };
 
