@@ -22,6 +22,12 @@ const postConfig = (option = {}) => ({
   ...option
 });
 
+const singlePostConfig = (option = {}) => ({
+  key: config.google.apiKey,
+  // view: 'READER'
+  ...option
+});
+
 const featurePostConfig = (option = {}) => ({
   alt: 'json',
   'max-results': 1,
@@ -69,6 +75,29 @@ export const callPosts = (payload = {}) => {
         return res.data;
       }
 
+      throw new Error(sendError(res));
+    })
+    .catch(err => {
+      console.log('TCL: callPosts -> err', err);
+      throw err;
+    });
+};
+
+export const callPostById = (id, payload = {}) => {
+  const sendPayload = {
+    ...payload,
+    params: {
+      ...singlePostConfig(payload.params || {})
+    },
+    path: id
+  };
+
+  return API.blogPost(sendPayload)
+    .then(res => {
+      if (isSuccess(res.status)) {
+        console.log('res.data ==>', res.data);
+        return res.data;
+      }
       throw new Error(sendError(res));
     })
     .catch(err => {

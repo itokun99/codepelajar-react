@@ -1,13 +1,17 @@
 import { React, PropTypes } from 'libraries';
 import { View, Text, Image } from 'components/atoms';
 
-const PostAuthorMeta = ({ data }) => (
+const PostAuthorMeta = ({ data, imageSize }) => (
   <View className="m-author-meta__wrapper">
     <Image
       className="m-author-meta__image"
       source={data.image}
       title={data.name}
       alt={data.name}
+      style={{
+        height: imageSize,
+        width: imageSize
+      }}
     />
     <Text tag="span" className="m-author-meta__title">
       {data.name}
@@ -16,7 +20,8 @@ const PostAuthorMeta = ({ data }) => (
 );
 
 PostAuthorMeta.propTypes = {
-  data: PropTypes.object
+  data: PropTypes.object,
+  imageSize: PropTypes.number
 };
 
 export default PostAuthorMeta;

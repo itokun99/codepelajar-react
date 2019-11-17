@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html>
 <html b:css='false' b:defaultwidgetversion='2' b:js='true' b:layoutsVersion='3' b:responsive='true' b:version='2' expr:dir='data:blog.locale.languageDirection' expr:lang='data:blog.locale.language' prefix='og: http://ogp.me/ns#' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
-<head>
-
-<b:if cond='data:blog.pageType == "error_page"'/>
+&lt;head&gt;
 
 <!-- INCLUDE TAG -->
 <include expiration='7d' path='*.css'/>
@@ -166,9 +164,12 @@
     text-align: center;
 }
   </style>
-</head>
 
-<body>
+
+
+&lt;/head&gt;
+&lt;!-- &lt;textarea&gt;<head />&lt;/textarea&gt; --&gt;
+&lt;body&gt;
 <!-- HEADER  -->
 <div class='header'>
   <div class='header__wrapper container'>
@@ -351,8 +352,8 @@
   </b:section>
 
   <div class='main-content__wrapper container'>
-    <div class='main-content__row'>
-      <div class='content main-content__left'>
+    <div expr:class='data:view.isPost ? "main-content__row isPost" : "main-content__row"'>
+      <div expr:class='data:view.isPost ? "content main-content__left isPost" : "content main-content__left"'>
         <b:section maxwidgets='1' showaddelement='false' class='content__inner' id='Blog'>
           <b:widget id='Blog1' locked='true' title='Blog Posts' type='Blog' version='2' visible='true'>
             <b:includable id='aboutPostAuthor'><!-- disable --></b:includable>
@@ -730,44 +731,18 @@ var disqus_blogger_canonical_homepage_url = "<data:blog.canonicalHomepageUrl/>";
   <b:include data='{ iconClass: ("touch-icon sharing-" + data:platform.key) }' expr:name='data:platform.key + "Icon"'/>
 </b:includable>
             <b:includable id='singlePost' var='post' data="post">
-              <div class='container' id='main-content'>
-                   <script>
-                    window.__POSTS__ = JSON.stringify({
-                      id: "<b:eval expr='data:post.id ? data:post.id : "" '/>",
-                      title: "<b:eval expr='data:post.title ? data:post.title  : "" '/>",
-                      date: "<b:eval expr='data:post.date  ? data:post.date  : "" '/>",
-                      author: {
-                          name:  "<b:eval expr='data:post.author.name ? data:post.author.name : "" '/>",
-                          image: "<b:eval expr='data:post.author.authorPhoto.image ? data:post.author.authorPhoto.image : "" '/>"
-                      },
-                      body: "<b:eval expr='data:post.body ? data:post.body.jsonEscaped : "" '/>"
-                    })
-                    console.log(`Data Post`, window.__POSTS__);             
-                  </script>
-                  <div class='content__section'>
-                      <div class="m-overlayTitle">
-                    	  <h1 style="font-size:3rem"><data:post.title/></h1>
-                      </div>
-                      <div class='m-headline'>
-                        <span><data:post.date/></span>
-                        <span><data:post.author.name/></span>
-						          </div>
-                      <!--Article-->
-                      <article class="o-article">
-                        <data:post.body/>
-                      </article>
-
-                      <!--Comments-->
-                      <div class="o-comments">
-                        <div class="o-comments__d-flex">
-                          <div class="o-comments__full-section">
-                              <b:include data='post' name='disqus-comment'/>
-                          </div>
-                        </div>
-                      </div>
-                      <!--End Content Section-->
-                  </div>
-              </div>
+              <script>
+              window.__POSTS__ = JSON.stringify({
+                id: "<b:eval expr='data:post.id ? data:post.id : "" '/>",
+                title: "<b:eval expr='data:post.title ? data:post.title  : "" '/>",
+                date: "<b:eval expr='data:post.date  ? data:post.date  : "" '/>",
+                author: {
+                    name:  "<b:eval expr='data:post.author.name ? data:post.author.name : "" '/>",
+                    image: "<b:eval expr='data:post.author.authorPhoto.image ? data:post.author.authorPhoto.image : "" '/>"
+                },
+                body: "<b:eval expr='data:post.body ? data:post.body.jsonEscaped : "" '/>"
+              });             
+            </script>
             </b:includable>
             <b:includable id='staticPage' var='post'>
             </b:includable>
@@ -810,7 +785,10 @@ var disqus_blogger_canonical_homepage_url = "<data:blog.canonicalHomepageUrl/>";
 
 
               <b:if cond='data:view.isPost'>
-                
+                <b:loop values='data:posts' var='post'>
+                  <b:include name='singlePost' data='post'/>
+                  <div id='SinglePostContainer'></div>
+                </b:loop>
               </b:if>
 
               
@@ -884,5 +862,7 @@ window.__BLOG_ID__ = "<data:blog.blogId />";
 //]]>//</script>
 <script src='https://raw.githack.com/itokun99/codepelajar-react/master/release/build/static/js/2.chunk.js' type='text/javascript'/>
 <script src='https://raw.githack.com/itokun99/codepelajar-react/master/release/build/static/js/main.chunk.js' type='text/javascript'/>
-</body>
+&lt;/body&gt;
+&lt;!-- &lt;textarea&gt;<body/>&lt;/textarea&gt; --&gt;
+
 </html>

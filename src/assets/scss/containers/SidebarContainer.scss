@@ -12,5 +12,13 @@
     border-right: 1px solid $grey-100;
     padding-right: $gutter-m;
     padding-left: $gutter-m;
+
+    @media (max-width: $tablet) {
+      max-width: 300px;
+    }
+
+    @media (max-width: $small-tablet) {
+      display: none !important;
+    }
   }
 }
