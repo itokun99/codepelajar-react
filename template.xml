@@ -797,17 +797,6 @@ var disqus_blogger_canonical_homepage_url = "<data:blog.canonicalHomepageUrl/>";
             </b:includable>
             <b:includable id='threadedComments' var='post'><!-- disable --></b:includable>
 
-            
-            <!-- POST COMPONENT -->
-            <b:includable id='singlePost' var='post'>
-
-            </b:includable>
-            
-            <!-- PAGE COMPONENT -->
-            <b:includable id='staticPage' var='post'>
-            
-            </b:includable>
-
 
             <!-- MAIN COMPONENT -->
             <b:includable id='main'>
@@ -831,52 +820,55 @@ var disqus_blogger_canonical_homepage_url = "<data:blog.canonicalHomepageUrl/>";
           </b:widget>
         </b:section>
       </div>
-      <div class='sidebar main-content__right'>
-        <b:section class='sidebar__inner' id='SidebarTop' name='Sidebar Top (Post only)'>
-          <b:widget id='PopularPosts1' locked='true' title='Popular Post' type='PopularPosts' visible='true'>
-            <b:widget-settings>
-              <b:widget-setting name='numItemsToShow'>5</b:widget-setting>
-              <b:widget-setting name='showThumbnails'>true</b:widget-setting>
-              <b:widget-setting name='showSnippets'>true</b:widget-setting>
-              <b:widget-setting name='timeRange'>ALL_TIME</b:widget-setting>
-            </b:widget-settings>
-            <b:includable id='main' var='this'>
-              <!-- <b:if cond='data:view.isPost'> -->
-                <script>
-                  window.__POPULAR_POST__ = JSON.stringify({
-                    title: "<data:title/>",
-                    data: [
-                      <b:loop values='data:posts where (p => p.id != data:view.postId)' var='post'>
-                        {
-                          title: "<b:eval expr='data:post.title ? data:post.title : ""'/>",
-                          description: "<b:eval expr='data:post.snippets.short ? data:post.snippets.short : ""'/>",
-                          url: "<b:eval expr='data:post.url ? data:post.url : ""' />",
-                          link: "<b:eval expr='data:post.link ? data:post.link : ""'/>",
-                          thumbnailUrl: "<b:eval expr='data:post.thumbnailUrl ? data:post.thumbnailUrl : ""'/>",
-                          featuredImage: "<b:eval expr='data:post.featuredImage ? data:post.featuredImage : ""'/>",
-                          date: "<b:eval expr='data:post.date ? data:post.date : ""'/>",
-                          lastUpdated: "<b:eval expr='data:post.lastUpdated ? data:post.lastUpdated : ""'/>",
-                          author: {
-                            name: "<b:eval expr='data:post.author.name ? data:post.author.name : ""' />",
-                            url: "<b:eval expr='data:post.author.profileUrl ? data:post.author.profileUrl : ""'/>"
-                          }
-                        },
-                      </b:loop>
-                    ]
-                  })
-                </script>
-                <div id="singlePopularPost"></div>
-              <!-- </b:if> -->
-            </b:includable>
-          </b:widget>
-        </b:section>
 
-        <b:section name='Sidebar Top (Middle)' class='sidebar__inner' id='SidebarMiddle'>
-        </b:section>
+      <b:if cond='!data:view.isMobile'>
+        <div class='sidebar main-content__right'>
+            <b:section class='sidebar__inner' id='SidebarTop' name='Sidebar Top (Post only)'>
+              <b:widget id='PopularPosts1' locked='true' title='Popular Post' type='PopularPosts' visible='true'>
+                <b:widget-settings>
+                  <b:widget-setting name='numItemsToShow'>5</b:widget-setting>
+                  <b:widget-setting name='showThumbnails'>true</b:widget-setting>
+                  <b:widget-setting name='showSnippets'>true</b:widget-setting>
+                  <b:widget-setting name='timeRange'>ALL_TIME</b:widget-setting>
+                </b:widget-settings>
+                <b:includable id='main' var='this'>
+                  <!-- <b:if cond='data:view.isPost'> -->
+                    <script>
+                      window.__POPULAR_POST__ = JSON.stringify({
+                        title: "<data:title/>",
+                        data: [
+                          <b:loop values='data:posts where (p => p.id != data:view.postId)' var='post'>
+                            {
+                              title: "<b:eval expr='data:post.title ? data:post.title : ""'/>",
+                              description: "<b:eval expr='data:post.snippets.short ? data:post.snippets.short : ""'/>",
+                              url: "<b:eval expr='data:post.url ? data:post.url : ""' />",
+                              link: "<b:eval expr='data:post.link ? data:post.link : ""'/>",
+                              thumbnailUrl: "<b:eval expr='data:post.thumbnailUrl ? data:post.thumbnailUrl : ""'/>",
+                              featuredImage: "<b:eval expr='data:post.featuredImage ? data:post.featuredImage : ""'/>",
+                              date: "<b:eval expr='data:post.date ? data:post.date : ""'/>",
+                              lastUpdated: "<b:eval expr='data:post.lastUpdated ? data:post.lastUpdated : ""'/>",
+                              author: {
+                                name: "<b:eval expr='data:post.author.name ? data:post.author.name : ""' />",
+                                url: "<b:eval expr='data:post.author.profileUrl ? data:post.author.profileUrl : ""'/>"
+                              }
+                            },
+                          </b:loop>
+                        ]
+                      })
+                    </script>
+                    <div id="singlePopularPost"></div>
+                  <!-- </b:if> -->
+                </b:includable>
+              </b:widget>
+            </b:section>
 
-        <b:section name='Sidebar Top (Bottom)' class='sidebar__inner' id='SidebarBottom'>
-        </b:section>
-      </div>
+            <b:section name='Sidebar Top (Middle)' class='sidebar__inner' id='SidebarMiddle'>
+            </b:section>
+
+            <b:section name='Sidebar Top (Bottom)' class='sidebar__inner' id='SidebarBottom'>
+            </b:section>
+          </div>
+      </b:if>
     </div>
   </div>
 <footer id="footer">
@@ -906,7 +898,7 @@ var disqus_blogger_canonical_homepage_url = "<data:blog.canonicalHomepageUrl/>";
 <!-- Google analytics -->
 <b:include data='blog' name='google-analytics'/>
 <script>
-window.__BLOG_ID__ = "<data:blog.blogId />"
+window.__BLOG_ID__ = "<data:blog.blogId />";
 </script>
 <script>//<![CDATA[//
 !function (c) { function e(e) { for (var r, t, n = e[0], o = e[1], u = e[2], a = 0, l = []; a < n.length; a++)t = n[a], Object.prototype.hasOwnProperty.call(f, t) && f[t] && l.push(f[t][0]), f[t] = 0; for (r in o) Object.prototype.hasOwnProperty.call(o, r) && (c[r] = o[r]); for (s && s(e); l.length;)l.shift()(); return i.push.apply(i, u || []), p() } function p() { for (var e, r = 0; r < i.length; r++) { for (var t = i[r], n = !0, o = 1; o < t.length; o++) { var u = t[o]; 0 !== f[u] && (n = !1) } n && (i.splice(r--, 1), e = a(a.s = t[0])) } return e } var t = {}, f = { 1: 0 }, i = []; function a(e) { if (t[e]) return t[e].exports; var r = t[e] = { i: e, l: !1, exports: {} }; return c[e].call(r.exports, r, r.exports, a), r.l = !0, r.exports } a.m = c, a.c = t, a.d = function (e, r, t) { a.o(e, r) || Object.defineProperty(e, r, { enumerable: !0, get: t }) }, a.r = function (e) { "undefined" != typeof Symbol && Symbol.toStringTag && Object.defineProperty(e, Symbol.toStringTag, { value: "Module" }), Object.defineProperty(e, "__esModule", { value: !0 }) }, a.t = function (r, e) { if (1 & e && (r = a(r)), 8 & e) return r; if (4 & e && "object" == typeof r && r && r.__esModule) return r; var t = Object.create(null); if (a.r(t), Object.defineProperty(t, "default", { enumerable: !0, value: r }), 2 & e && "string" != typeof r) for (var n in r) a.d(t, n, function (e) { return r[e] }.bind(null, n)); return t }, a.n = function (e) { var r = e && e.__esModule ? function () { return e.default } : function () { return e }; return a.d(r, "a", r), r }, a.o = function (e, r) { return Object.prototype.hasOwnProperty.call(e, r) }, a.p = "/"; var r = this.webpackJsonpcodepelajarreact = this.webpackJsonpcodepelajarreact || [], n = r.push.bind(r); r.push = e, r = r.slice(); for (var o = 0; o < r.length; o++)e(r[o]); var s = n; p() }([])
