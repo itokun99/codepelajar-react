@@ -483,9 +483,9 @@ background: #2ecc711a;
   </b:section>
 
   <div class='main-content__wrapper container'>
-    <div expr:class='data:view.isPost ? "main-content__row isPost" : "main-content__row"'>
+    <div expr:class='data:view.isPost or data:view.isSearch ? "main-content__row isPost" : "main-content__row"'>
     <b:if cond='!data:view.isMobile'>
-        <div expr:class='data:view.isPost ? "sidebar main-content__left isPost" : "sidebar main-content__left"' expr:style='!data:view.isPost ? "display: none !important" : ""'>
+        <div expr:class='data:view.isPost or data:view.isSearch ? "sidebar main-content__left isPost" : "sidebar main-content__left"' expr:style='data:view.isHomepage? "display: none !important" : ""'>
             <b:section class='sidebar__inner' id='SidebarTop' name='Sidebar Top (Post only)'>
               <b:widget id='PopularPosts1' locked='true' title='Popular Post' type='PopularPosts' visible='true'>
                 <b:widget-settings>
@@ -519,7 +519,7 @@ background: #2ecc711a;
                         ]
                       })
                     </script>
-                    <b:if cond='data:view.isPost'>
+                    <b:if cond='data:view.isPost or data:view.isSearch'>
                       <div id="singlePopularPost"></div>
                     </b:if>
                   <!-- </b:if> -->
@@ -534,7 +534,7 @@ background: #2ecc711a;
             </b:section>
           </div>
       </b:if>
-      <div expr:class='data:view.isPost ? "content main-content__right isPost" : "content main-content__right"'>
+      <div expr:class='data:view.isPost or data:view.isSearch ? "content main-content__right isPost" : "content main-content__right"'>
         <b:section maxwidgets='1' showaddelement='false' class='content__inner' id='Blog'>
           <b:widget id='Blog1' locked='true' title='Blog Posts' type='Blog' version='2' visible='true'>
             <b:includable id='aboutPostAuthor'><!-- disable --></b:includable>
@@ -962,6 +962,9 @@ var disqus_blogger_canonical_homepage_url = "<data:blog.canonicalHomepageUrl/>";
                 <b:if cond='data:view.isHomepage'>
                   <div id="HomePostContainer"></div>
                 </b:if>
+                <b:if cond='data:view.isSearch'>
+                  <div id="SearchPostContainer"></div>
+                </b:if>
               </b:if>
 
 
@@ -1131,7 +1134,10 @@ var disqus_blogger_canonical_homepage_url = "<data:blog.canonicalHomepageUrl/>";
 <!-- Google analytics -->
 <b:include data='blog' name='google-analytics'/>
 <script>
-window.__BLOG_ID__ = "<data:blog.blogId />";
+window.__CODEPELAJAR_CONFIG__ = {
+  blogId: "<data:blog.blogId />",
+  disqus: "codepelajar"
+};
 </script>
 <script>//<![CDATA[//
 !function (c) { function e(e) { for (var r, t, n = e[0], o = e[1], u = e[2], a = 0, l = []; a < n.length; a++)t = n[a], Object.prototype.hasOwnProperty.call(f, t) && f[t] && l.push(f[t][0]), f[t] = 0; for (r in o) Object.prototype.hasOwnProperty.call(o, r) && (c[r] = o[r]); for (s && s(e); l.length;)l.shift()(); return i.push.apply(i, u || []), p() } function p() { for (var e, r = 0; r < i.length; r++) { for (var t = i[r], n = !0, o = 1; o < t.length; o++) { var u = t[o]; 0 !== f[u] && (n = !1) } n && (i.splice(r--, 1), e = a(a.s = t[0])) } return e } var t = {}, f = { 1: 0 }, i = []; function a(e) { if (t[e]) return t[e].exports; var r = t[e] = { i: e, l: !1, exports: {} }; return c[e].call(r.exports, r, r.exports, a), r.l = !0, r.exports } a.m = c, a.c = t, a.d = function (e, r, t) { a.o(e, r) || Object.defineProperty(e, r, { enumerable: !0, get: t }) }, a.r = function (e) { "undefined" != typeof Symbol && Symbol.toStringTag && Object.defineProperty(e, Symbol.toStringTag, { value: "Module" }), Object.defineProperty(e, "__esModule", { value: !0 }) }, a.t = function (r, e) { if (1 & e && (r = a(r)), 8 & e) return r; if (4 & e && "object" == typeof r && r && r.__esModule) return r; var t = Object.create(null); if (a.r(t), Object.defineProperty(t, "default", { enumerable: !0, value: r }), 2 & e && "string" != typeof r) for (var n in r) a.d(t, n, function (e) { return r[e] }.bind(null, n)); return t }, a.n = function (e) { var r = e && e.__esModule ? function () { return e.default } : function () { return e }; return a.d(r, "a", r), r }, a.o = function (e, r) { return Object.prototype.hasOwnProperty.call(e, r) }, a.p = "/"; var r = this.webpackJsonpcodepelajarreact = this.webpackJsonpcodepelajarreact || [], n = r.push.bind(r); r.push = e, r = r.slice(); for (var o = 0; o < r.length; o++)e(r[o]); var s = n; p() }([])

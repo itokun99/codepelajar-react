@@ -1,5 +1,6 @@
 import { isLocalhost, blogId } from 'utils';
 
+const blogConfig = window.__CODEPELAJAR_CONFIG__;
 const development = {
   url: {
     api: 'https://www.googleapis.com/blogger/v3',
@@ -25,10 +26,10 @@ const production = {
   },
   google: {
     apiKey: 'AIzaSyB2MpzH-Gq6fnWuUnoI2PH2sPMTkGIQ9b0',
-    blogId
+    blogId: blogConfig.blogId || blogId
   },
   disqus: {
-    shortName: 'codepelajar'
+    shortName: blogConfig.disqus || null
   }
 };
 
