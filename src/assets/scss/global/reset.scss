@@ -1006,6 +1006,10 @@ article p img {
   padding: 14px;
 }
 
+.o-brand-logo__widget {
+  display: none;
+}
+
 /*Social Link*/
 .m-social-links {
   list-style: none;
@@ -1134,14 +1138,25 @@ article p img {
   }
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: $large-phone) {
   .footer__brand {
     display: none;
   }
 
+  #footerWidget {
+    display: none;
+  }
+
+  .o-brand-logo__social {
+    float: none;
+    text-align: center;
+  }
+
   .footer__brand,
   .m-sponsored {
-    display: none;
+    // display: none;
+    width: 100%;
+    text-align: center;
   }
 
   .m-copyright .m-credit-footer {
@@ -1152,5 +1167,11 @@ article p img {
 
   .m-credit-footer__items {
     float: unset
+  }
+}
+
+@media (max-width: 480px) {
+  #footerWidget img {
+    display: none;
   }
 }

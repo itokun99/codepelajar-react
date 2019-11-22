@@ -5,7 +5,8 @@ import {
   FaInstagram,
   FaYoutube,
   FaLinkedin,
-  FaGithub
+  FaGithub,
+  FaHome
 } from 'react-icons/fa';
 
 const Icon = ({ name, ...props }) => {
@@ -22,6 +23,8 @@ const Icon = ({ name, ...props }) => {
       return <FaLinkedin {...props} />;
     case 'youtube':
       return <FaYoutube {...props} />;
+    case 'home':
+      return <FaHome {...props} />;
     default:
       return null;
   }

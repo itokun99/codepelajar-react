@@ -1,7 +1,12 @@
 import { React, moment } from 'libraries';
-import { View, Text, Anchor, Skeleton } from 'components/atoms';
-import { PostAuthorMeta, DisqusComment, AddThis } from 'components/molecules';
-import { parseJSON, createAuthor } from 'utils';
+import { View, Text, Anchor, Skeleton, Icon } from 'components/atoms';
+import {
+  PostAuthorMeta,
+  DisqusComment,
+  AddThis,
+  BreadCrumb
+} from 'components/molecules';
+import { parseJSON, createAuthor, createSearchUrl } from 'utils';
 import { callPostById } from 'services';
 import { config } from 'config/api/url';
 import _ from 'lodash';
@@ -79,7 +84,7 @@ class SinglePostBlock extends React.Component {
     if (!_.isEmpty(preTag)) {
       const preCount = preTag.length;
       for (let i = 0; i < preCount; i += 1) {
-        preTag[0].classList.add('prettyprint');
+        preTag[i].classList.add('prettyprint');
       }
 
       await this.loadPretify();
@@ -141,6 +146,13 @@ class SinglePostBlock extends React.Component {
       <View className="o-single-post-block__wrapper">
         <View className="o-single-post-block__header">
           {isLoading && this.renderSkeleton()}
+          {data && (
+            <BreadCrumb
+              title={data.title}
+              labels={data.labels}
+              url={data.url}
+            />
+          )}
           {data && data.title ? (
             <Text tag="h1" className="o-single-post-block__title">
               {data.title}
@@ -148,7 +160,7 @@ class SinglePostBlock extends React.Component {
           ) : null}
           <View className="o-single-post-block__meta">
             {data && data.published ? (
-              <Text>
+              <Text className="o-single-post-block__datetime">
                 Diposting pada: {moment(data.published).format('LLLL')}
               </Text>
             ) : null}

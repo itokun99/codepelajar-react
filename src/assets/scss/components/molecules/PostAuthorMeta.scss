@@ -2,12 +2,15 @@
   &__wrapper {
     display: flex;
     align-items: center;
+    padding: $gutter-s 0;
   }
 
   &__image {
     height: 30px;
     width: 30px;
     margin-right: $gutter-xs;
+    border-radius: 30px;
+    overflow: hidden;
   }
 
   &__title {

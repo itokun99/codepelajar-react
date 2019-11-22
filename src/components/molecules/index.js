@@ -4,6 +4,7 @@ import PostLabel from './PostLabel';
 import PostList from './PostList';
 import DisqusComment from './DisqusComment';
 import AddThis from './AddThis';
+import BreadCrumb from './BreadCrumb';
 
 export {
   PostCard,
@@ -11,5 +12,6 @@ export {
   PostLabel,
   PostList,
   DisqusComment,
-  AddThis
+  AddThis,
+  BreadCrumb
 };

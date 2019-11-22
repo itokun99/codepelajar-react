@@ -4,6 +4,15 @@
     transition: all 0.5s ease;
     background-color: $light-100;
     overflow: hidden;
+
+
+    @media (min-width: $tablet) {
+      &:hover {
+        box-shadow: 0 2px 25px 0.5px $dark-25;
+        transition: all 0.35s;
+        transform: translateY(-3px);
+      }
+    }
   }
 
   &__header {
