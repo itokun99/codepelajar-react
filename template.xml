@@ -463,7 +463,12 @@
                       })
                     </script>
                     <b:if cond='data:view.isPost or data:view.isSearch'>
-                      <div id="singlePopularPost"></div>
+                      <b:if cond='data:view.isPost'>
+                        <div id="singlePopularPost"></div>
+                      </b:if>
+                      <b:if cond='data:view.isSearch'>
+                        <div id="SearchPostContainer"></div>
+                      </b:if>
                     </b:if>
                   <!-- </b:if> -->
                 </b:includable>
