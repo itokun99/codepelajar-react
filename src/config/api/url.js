@@ -14,6 +14,14 @@ const development = {
   },
   disqus: {
     shortName: 'codepelajar'
+  },
+  addThis: {
+    id: blogConfig.addThisId
+  },
+  cse: {
+    url:
+      blogConfig.cseUrl ||
+      'https://cse.google.com/cse.js?cx=005178091281942032751:rimwwhz9ofx'
   }
 };
 
@@ -30,6 +38,14 @@ const production = {
   },
   disqus: {
     shortName: blogConfig.disqus || null
+  },
+  addThis: {
+    id: blogConfig.addThisId
+  },
+  cse: {
+    url:
+      blogConfig.cseUrl ||
+      'https://cse.google.com/cse.js?cx=005178091281942032751:rimwwhz9ofx'
   }
 };
 

@@ -42,7 +42,6 @@ class FeatureBlock extends React.PureComponent {
   componentDidUpdate(prevProps, prevState) {
     const { nextToken } = this.state;
     if (prevState.nextToken && !nextToken) {
-      console.log('this ended');
       // eslint-disable-next-line react/no-did-update-set-state
       this.setState({
         isLoaded: true

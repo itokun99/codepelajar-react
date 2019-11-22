@@ -900,6 +900,21 @@ article p img {
   position: relative;
 }
 
+#footerWidget {
+  display: flex;
+  align-items: center;
+}
+
+.o-brand-logo__title {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 16px;
+}
+
+.o-brand-logo__body {
+  padding: 14px;
+}
+
 /*Social Link*/
 .m-social-links {
   list-style: none;
@@ -1042,9 +1057,9 @@ article p img {
     width: 100%;
     padding: 0;
     text-align: center
-}
+  }
 
-.m-credit-footer__items {
-  float: unset
-}
+  .m-credit-footer__items {
+    float: unset
+  }
 }

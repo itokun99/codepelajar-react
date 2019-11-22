@@ -2,6 +2,7 @@ import { React } from 'libraries';
 import { getPopularPostData } from 'services';
 import { View, Text, Anchor, Image, Skeleton } from 'components/atoms';
 import { PostList } from 'components/molecules';
+import { getImage } from 'utils';
 
 class PopularPost extends React.Component {
   constructor(props) {
@@ -33,16 +34,22 @@ class PopularPost extends React.Component {
         });
       }, 3000);
     } catch (err) {
-      console.log('TCL: PopularPost -> init -> err', err);
       this.setState({
         isLoading: false
       });
     }
   };
 
+  handleImage = (thumbnail, featuredImage) => {
+    if (thumbnail) return thumbnail;
+    if (featuredImage) return featuredImage;
+    return getImage();
+  };
+
+  handleUrl = (link, url) => link || url;
+
   render() {
     const { popularPost, isLoading } = this.state;
-    console.log('popularPost ==>', popularPost);
     return (
       <View className="o-popular-post__wrapper">
         <View className="o-popular-post__header">
@@ -82,10 +89,11 @@ class PopularPost extends React.Component {
                 <PostList
                   key={index}
                   title={post.title}
-                  url={post.link ? post.link : post.url}
-                  image={
-                    post.thumbnailUrl ? post.thumbnailUrl : post.featuredImage
-                  }
+                  url={this.handleUrl(post.link, post.url)}
+                  image={this.handleImage(
+                    post.thumbnailUrl,
+                    post.featuredImage
+                  )}
                 />
               ))}
           </View>

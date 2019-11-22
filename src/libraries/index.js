@@ -8,3 +8,4 @@ import className from 'classnames';
 export { React, PropTypes, moment, axios, className as cx };
 
 export * from 'react';
+export * from 'react-icons';

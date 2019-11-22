@@ -43,7 +43,6 @@ class DisqusComment extends React.Component {
         });
       }, 2000);
     } catch (err) {
-      console.log('TCL: DisqusComment -> init -> err', err);
       this.setState({
         isLoading: false,
         isLoaded: true

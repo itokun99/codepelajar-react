@@ -56,7 +56,6 @@ export const callFeaturedPost = (payload = {}) => {
       throw new Error(sendError(res));
     })
     .catch(err => {
-      console.log('TCL: callFeaturedPost -> err', err);
       throw err;
     });
 };
@@ -78,7 +77,6 @@ export const callPosts = (payload = {}) => {
       throw new Error(sendError(res));
     })
     .catch(err => {
-      console.log('TCL: callPosts -> err', err);
       throw err;
     });
 };
@@ -95,13 +93,11 @@ export const callPostById = (id, payload = {}) => {
   return API.blogPost(sendPayload)
     .then(res => {
       if (isSuccess(res.status)) {
-        console.log('res.data ==>', res.data);
         return res.data;
       }
       throw new Error(sendError(res));
     })
     .catch(err => {
-      console.log('TCL: callPosts -> err', err);
       throw err;
     });
 };

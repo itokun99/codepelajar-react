@@ -129,63 +129,6 @@
 => License URI: http://creativecommons.org/licenses/by-nc/4.0/
 */
 
-/* HTML5 display-role reset for older browsers */
-article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}
-body{line-height:1}
-blockquote, q{background:#43a047d1;border-radius:5px;color:white;font-size:15px;font-family:'Rubik',sans-serif;position:relative;padding:1.2em 1.5em;margin:1em auto;overflow:hidden}
-code,kbd,pre,samp{font-family:monospace,monospace;}
-blockquote {
-    color: #FFF;
-    font-size: 16px;
-    margin: 0 0 16px;
-    padding: 23px;
-}
-pre{white-space:pre;word-wrap:normal;overflow:auto;font-size:12px;margin:10px -10px}
-kbd {position:relative;background:#81C784;border-radius:6px;padding:5px;color:#fff;font-size:14px;margin:auto 2px;}
-kbd:before{position:absolute;content:'Penting!';display:table;bottom:19px;left:12px;background:#e62576;color:#fff;padding:6px;border-radius:2px;font-size:90%;line-height:1;opacity:0;visibility:hidden;transform:scale(0.8);z-index:2;transition:all .3s;}
-kbd:hover:before{transform:scale(1.0);opacity:1;visibility:visible;transition:all .3s}
-table{border-collapse:collapse;border-spacing:0}
-a{color:#3C97F3;text-decoration:none;transition:color .1s linear;-moz-transition:color .1s linear;-webkit-transition:color .1s linear}
-a:hover{text-decoration:underline}
-
-
-/*CSS FORMATTER - TABEL*/
-table {
-width: 100%;
-background: #fff;
-margin: 1em 0;
--webkit-box-shadow: none;
-border-radius: .28571429rem;
-text-align: left;
-color: rgba(0,0,0,.87);
-border-collapse: separate;
-border-spacing: 0;
-border-bottom:1px solid rgb(233, 250, 240);
-}
-table tr th {
-cursor: auto;
-background: #2ecc71d4;
-text-align: inherit;
-color: rgb(255, 255, 255);
-padding:14px;
-vertical-align: inherit;
-font-weight: 700;
-text-transform: none;
-}
-table tr td {
-border-right: 0.5px solid #f9fafb;
-padding: 14px;
-}
-table tr td:last-child {
-border-left: none;
-border-right:none;
-}
-table tr th:last-child {
-border-right: none;
-}
-table tr:nth-child(even) {
-background: #2ecc711a;
-}
 
 .m-sponsored {
     width: 50%;
@@ -991,8 +934,8 @@ var disqus_blogger_canonical_homepage_url = "<data:blog.canonicalHomepageUrl/>";
         <div class="o-brand-logo">
           <div class="o-brand-logo__img">
             <div class="d-flex">
-              <b:section name="Footer Brand" class="footer__brand" id="footerWidget">
-                <b:widget id='Image1' locked='false' title='' type='Image' visible='true'>
+              <b:section name="Footer Brand" maxwidgets='1' class="footer__brand" id="footerWidget">
+                <b:widget id='Image1' locked='true' title='Footer Brand Image' type='Image' visible='true'>
                   <b:widget-settings>
                     <b:widget-setting name='displayUrl'>http://1.bp.blogspot.com/-DJNsuK4bhvY/XdFuH93-vQI/AAAAAAAAEiw/Oy59vfoCfK4eqdNzSDFFBrgTAx18b5vvwCK4BGAYYCw/s790/codepelajar-logo.png</b:widget-setting>
                     <b:widget-setting name='displayHeight'>480</b:widget-setting>
@@ -1019,15 +962,53 @@ var disqus_blogger_canonical_homepage_url = "<data:blog.canonicalHomepageUrl/>";
                     <b:include name='content'/>
                   </b:includable>
                 </b:widget>
+                <b:widget id='HTML2' locked='true' title='Footer Brand Description' type='HTML' visible='true'>
+                  <b:widget-settings>
+                    <b:widget-setting name='content'><![CDATA[<p>Situs <i>Coder Blogging</i> yang menyediakan tutorial seputar Blog, Coding, dan Editing. Belajar Fundamental Programming disinlah tempatnya!</p>]]></b:widget-setting>
+                  </b:widget-settings>
+                  <b:includable id='main'>
+                    <div class='o-brand-logo__body'>
+                      <h3 class='o-brand-logo__title'><data:blog.title /></h3>
+                      <div class='o-brand-logo__description'>
+                        <data:content/>
+                      </div>
+                    </div>
+                  </b:includable>
+                </b:widget>
               </b:section>
-              <div class="o-brand-logo__title">
-                <b><data:blog.title/></b>
-                <p>Situs <i>Coder Blogging</i> yang menyediakan tutorial seputar Blog, Coding, dan Editing.
-                Belajar Fundamental Programming disinlah tempatnya!</p>
-              </div>
             </div>
           </div>
         </div>
+        <b:section maxwidgets='1' id='FooterSocialSection' name='Social Icon'>
+          <b:widget id='LinkList2' locked='false' title='Social Icon' type='LinkList' visible='true'>
+            <b:widget-settings>
+              <b:widget-setting name='link-3'>#</b:widget-setting>
+              <b:widget-setting name='sorting'>NONE</b:widget-setting>
+              <b:widget-setting name='text-1'>github</b:widget-setting>
+              <b:widget-setting name='link-1'>#</b:widget-setting>
+              <b:widget-setting name='text-0'>youtube</b:widget-setting>
+              <b:widget-setting name='link-2'>#</b:widget-setting>
+              <b:widget-setting name='text-3'>twitter</b:widget-setting>
+              <b:widget-setting name='link-0'>#</b:widget-setting>
+              <b:widget-setting name='text-2'>facebook</b:widget-setting>
+            </b:widget-settings>
+            <b:includable id='main'>
+              <b:include name='content'/>
+            </b:includable>
+            <b:includable id='content'>
+            <script>
+              window.__FOOTER_SOCIAL_ICON__ = [];
+                  <b:loop values='data:links' var='link'>
+                    window.__FOOTER_SOCIAL_ICON__.push({
+                      type: "<data:link.name/>",
+                      url: "<data:link.target/>"
+                    });
+                  </b:loop>
+              </script>
+              <div id="FooterSocialContainer"></div>
+            </b:includable>
+          </b:widget>
+        </b:section>
         <div class="o-widget-navlink">
           <div class="o-brand-logo__social">
             <ul class="m-social-links">
@@ -1136,7 +1117,10 @@ var disqus_blogger_canonical_homepage_url = "<data:blog.canonicalHomepageUrl/>";
 <script>
 window.__CODEPELAJAR_CONFIG__ = {
   blogId: "<data:blog.blogId />",
-  disqus: "codepelajar"
+  disqus: "codepelajar",
+  defaultImage: "https://1.bp.blogspot.com/-QYP55lDT3y8/XdEL28HRsfI/AAAAAAAACqw/My15c96Og8022Jc6HVfPFf1gBku8PmA_wCLcBGAsYHQ/s1600/no-image-codepelajar.png",
+  addThisId: "5dd79989c6588238",
+  cseUrl: "https://cse.google.com/cse.js?cx=005178091281942032751:rimwwhz9ofx"
 };
 </script>
 <script>//<![CDATA[//

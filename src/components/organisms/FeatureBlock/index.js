@@ -58,7 +58,6 @@ class FeatureBlock extends React.PureComponent {
         isLoaded: true
       });
     } catch (err) {
-      console.log('TCL: FeatureBlock -> init -> err', err);
       this.setState({
         isLoading: false
       });

@@ -1,8 +1,9 @@
 import { React, moment } from 'libraries';
 import { View, Text, Anchor, Skeleton } from 'components/atoms';
-import { PostAuthorMeta, DisqusComment } from 'components/molecules';
+import { PostAuthorMeta, DisqusComment, AddThis } from 'components/molecules';
 import { parseJSON, createAuthor } from 'utils';
 import { callPostById } from 'services';
+import { config } from 'config/api/url';
 
 class SinglePostBlock extends React.Component {
   constructor(props) {
@@ -128,6 +129,7 @@ class SinglePostBlock extends React.Component {
         <View className="o-single-post-block__footer">
           {data && data.url ? <DisqusComment currentUrl={data.url} /> : null}
         </View>
+        <AddThis id={config.addThis.id} />
       </View>
     );
   }

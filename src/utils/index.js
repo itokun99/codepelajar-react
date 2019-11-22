@@ -21,6 +21,27 @@ export const resizeImage = (image, width = 400, height = 400, crop = true) => {
   return image.replace(target, result);
 };
 
+// GET SOCIAL DATA
+export const getSocial = type => {
+  switch (type) {
+    case 'footer':
+      return _.get(window, '__FOOTER_SOCIAL_ICON__', []);
+    default:
+      return [];
+  }
+};
+
+// GET IMAGE
+export const getImage = (image = '') => {
+  const defaultImage = _.get(
+    window,
+    '__CODEPELAJAR_CONFIG__.defaultImage',
+    'https://1.bp.blogspot.com/-QYP55lDT3y8/XdEL28HRsfI/AAAAAAAACqw/My15c96Og8022Jc6HVfPFf1gBku8PmA_wCLcBGAsYHQ/s1600/no-image-codepelajar.png'
+  );
+  if (image) return image;
+  return defaultImage;
+};
+
 // MAPING DATA FROM RESPONSE FEED;
 export const mapFeedToFeatureData = obj => {
   const data = _.get(obj, 'feed.entry[0]', null);
