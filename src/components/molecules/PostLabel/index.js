@@ -11,7 +11,7 @@ const PostLabel = ({ data }) => {
           if (index === 0) {
             return (
               <Anchor
-                href={createSearchUrl(label)}
+                href={createSearchUrl(label, '/search?q=')}
                 key={index}
                 className="m-post-label__item"
               >

@@ -12,7 +12,8 @@ export const elementId = name => document.getElementById(name);
 export const isLocalhost = window.location.origin.indexOf('localhost') !== -1;
 
 // CREATE URL FOR SEARCH ON LABEL
-export const createSearchUrl = (value = '') => `/search/label/${value}`;
+export const createSearchUrl = (value = '', customPath = null) =>
+  `${customPath || '/search/label/'}${value}`;
 
 // RESIZE IMAGE FOR POST IMAGE
 export const resizeImage = (image, width = 400, height = 400, crop = true) => {

@@ -4,6 +4,7 @@ import { PostAuthorMeta, DisqusComment, AddThis } from 'components/molecules';
 import { parseJSON, createAuthor } from 'utils';
 import { callPostById } from 'services';
 import { config } from 'config/api/url';
+import _ from 'lodash';
 
 class SinglePostBlock extends React.Component {
   constructor(props) {
@@ -11,12 +12,20 @@ class SinglePostBlock extends React.Component {
     this.state = {
       data: null,
       isLoading: false,
-      times: 0
+      times: 0,
+      contentLoaded: false
     };
   }
 
   componentDidMount() {
     this.init();
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    const { contentLoaded } = this.state;
+    if (contentLoaded !== prevState.contentLoaded && contentLoaded === true) {
+      this.renderPreTag();
+    }
   }
 
   init = async () => {
@@ -26,7 +35,7 @@ class SinglePostBlock extends React.Component {
       const { id } = postJSON;
       const data = await callPostById(id);
       setTimeout(() => {
-        this.setState({ data, isLoading: false });
+        this.setState({ data, isLoading: false, contentLoaded: true });
       }, 2000);
     } catch (err) {
       const { times } = this.state;
@@ -47,6 +56,33 @@ class SinglePostBlock extends React.Component {
             return window.location.reload();
         }
       );
+    }
+  };
+
+  loadPretify = () => {
+    const el = document.createElement('script');
+    el.src =
+      'https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js';
+    el.type = 'text/javascript';
+    el.async = true;
+    (
+      document.getElementsByTagName('body')[0] ||
+      document.getElementsByTagName('head')[0]
+    ).appendChild(el);
+    this.setState({
+      contentLoaded: false
+    });
+  };
+
+  renderPreTag = async () => {
+    const preTag = document.getElementsByTagName('pre');
+    if (!_.isEmpty(preTag)) {
+      const preCount = preTag.length;
+      for (let i = 0; i < preCount; i += 1) {
+        preTag[0].classList.add('prettyprint');
+      }
+
+      await this.loadPretify();
     }
   };
 

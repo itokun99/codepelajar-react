@@ -16,7 +16,7 @@ const development = {
     shortName: 'codepelajar'
   },
   addThis: {
-    id: blogConfig.addThisId
+    id: blogConfig.addThisId || '5dd79989c6588238'
   },
   cse: {
     url:
@@ -40,7 +40,7 @@ const production = {
     shortName: blogConfig.disqus || null
   },
   addThis: {
-    id: blogConfig.addThisId
+    id: blogConfig.addThisId || '5dd79989c6588238'
   },
   cse: {
     url:

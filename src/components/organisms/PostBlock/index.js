@@ -3,26 +3,7 @@ import _ from 'lodash';
 import { View, Skeleton, Button } from 'components/atoms';
 import { PostCard } from 'components/molecules';
 import { callPosts } from 'services';
-import { createAuthor } from 'utils';
-
-const dummy = {
-  title: 'Dokumentasi Simpel Template Black Clover',
-  description:
-    'Selamat datang di postingan dokumentasi template yang saya buat dan bernama BLACK CLOVER. Berikut dokumentasinya:Cara Setting TemplatePemasangan- Buka Blogger.com- Pergi ke menu Tema- Lihat kiri atas ada tombol backup/pulihkan dan klik- Akan ada Modal popup, tekan tombol "choose file"- Pilih template ini- DoneKonfigurasi kelengkapan templateKonfigurasi sosial dan verifikasiCari SOSIAL AND ',
-  image:
-    'https://1.bp.blogspot.com/-fSy9M-70Ozg/XMmtX14DsNI/AAAAAAAACio/EPS2DNWQ23weG7L_0diYUvpwgbhufmSogCLcBGAs/w315-h196-p-k-no-nu/grid%2Bposter%2B-1.png',
-  url:
-    'https://nextcodepelajar.blogspot.com/2018/08/dokumentasi-simpel-template-black-clover.html',
-  label: ['Tutorial', 'Website']
-};
-
-const dummyAuthor = {
-  id: '08567324068406956261',
-  image:
-    'http://lh3.googleusercontent.com/zFdxGE77vvD2w5xHy6jkVuElKv-U9_9qLkRYK8OnbDeJPtjSZ82UPq5w6hJ-SA=s35',
-  name: 'Indrawan Lisanto',
-  url: 'https://www.blogger.com/profile/08567324068406956261'
-};
+import { createAuthor, getImage } from 'utils';
 
 class FeatureBlock extends React.PureComponent {
   constructor(props) {
@@ -157,7 +138,7 @@ class FeatureBlock extends React.PureComponent {
                 <PostCard
                   url={post.url}
                   title={post.title}
-                  image={_.get(post, 'images[0].url', '')}
+                  image={getImage(_.get(post, 'images[0].url', ''))}
                   author={createAuthor(post.author)}
                   label={post.labels}
                 />
