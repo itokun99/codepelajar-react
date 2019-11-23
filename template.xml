@@ -41,9 +41,9 @@
 
 
 <!-- META TAG -->
-<meta content='5LDCpK7QEZFcgwXeKowJO-RFlXcGN90jVJ7mi5kWf90' name='google-site-verification'/>
-<meta content='221135587FBA6C67D2BBF38EF92F735F' name='msvalidate.01'/>
-<meta content='fe13380f270a2611' name='yandex-verification'/>
+<meta content='XXXXX' name='google-site-verification'/>
+<meta content='XXXXX' name='msvalidate.01'/>
+<meta content='XXXXX' name='yandex-verification'/>
 <meta content='Indonesia' name='geo.placename'/>
 <meta content='Code Pelajar' name='Author'/>
 <meta content='general' name='rating'/>
@@ -59,8 +59,8 @@
 <meta expr:content='data:blog.title' property='og:site_name'/>
 <meta expr:content='data:view.url.canonical' property='og:url'/>
 
-<meta content='https://www.facebook.com/codepelajar' property='article:author'/>
-<meta content='https://www.facebook.com/codepelajar' property='article:publisher'/>
+<meta content='XXXXX' property='article:author'/>
+<meta content='XXXXX' property='article:publisher'/>
 <meta content='xxxxxxxx' property='fb:app_id'/>
 <meta content='xxxxxxxx' property='fb:admins'/>
 <meta content='en_US' property='og:locale:alternate'/>
@@ -1046,17 +1046,6 @@ window.__CODEPELAJAR_CONFIG__ = {
 <div style='position: fixed; top: 50px; right: 0px; z-index: 99999;'><a href='https://www.iwa.id/2019' style='display:block; width: 68px; height: 100px;' target='_blank'><img src='https://www.iwa.id/ribbon/iwa-nominee-ribbon.png'/></a></div>
 
 <script data-ad-client="ca-pub-1718279142884347" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<script>//<![CDATA[//
-/*LAZY GOOGLE ADSENSE*/
-var lazyadsense = false;
-window.addEventListener("scroll", function(){
-if ((document.documentElement.scrollTop != 0 && lazyadsense === false) || (document.body.scrollTop != 0 && lazyadsense === false)) {
-(function() { var ad = document.createElement('script'); ad.type = 'text/javascript'; ad.async = true; ad.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'; var sc = document.getElementsByTagName('script')[0]; sc.parentNode.insertBefore(ad, sc); })();
-    lazyadsense = true;
-  }
-}, true);
-//]]>//
-</script>
 &lt;/body&gt;
 &lt;!-- &lt;textarea&gt;<body/>&lt;/textarea&gt; --&gt;
 
