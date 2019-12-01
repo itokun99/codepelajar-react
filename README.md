@@ -1,68 +1,39 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Template Blogger With React JS
 
-In the project directory, you can run:
+This template build with React JS and Experimental for use in your blogger Web. Combine with Blogger API, Blogger JSON Feed and some stuff like npm dependencies.
 
-### `yarn start`
+### is React SSR?
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Actually <strong>Yes</strong>, because this is manipulating with HTML DOM and React DOM by Injecting View to <kbd>id</kbd> in template.xml. So, ssr rendering is default by blogger ssr flow not React Route.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+### is Open Source?
 
-### `yarn test`
+<strong>Yes</strong>, you can clone and try to modify source code by running <kbd>npm</kbd> or <kbd>yarn</kbd>.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `yarn build`
+### How to use this template?
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+First, you can copy and paste to Blogger template editor. then change some configuration script bellow:
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+<pre>
+<script>
+  window.__CODEPELAJAR_CONFIG__ = {
+    blogId: "{{ BLOG_ID }}",
+    disqus: "{{ DISQUS_SHORTNAME }}",
+    defaultImage: "{{ DEFAULT_IMAGE_URL }}",
+    addThisId: "{{ ADDTHIS_ID }}",
+    cseUrl: "{{ GOOGLE_CSE_URL }}"
+  };
+</script>
+</pre>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### How to custom this template?
 
-### `yarn eject`
+Just clone and run React env in your local.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### FYI
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+please report any issue to <strong>indrawanlisantopersonal@gmail.com</strong>
