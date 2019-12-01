@@ -27,7 +27,7 @@ const PostCard = ({ title, author, image, url, label }) => (
     </View>
     <View className="m-post-card__footer">
       <View className="m-post-card__meta">
-        <PostAuthorMeta data={author} />
+        <PostAuthorMeta showImage={image !== ''} data={author} />
       </View>
     </View>
   </View>

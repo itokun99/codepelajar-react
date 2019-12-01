@@ -1,7 +1,7 @@
 import { React } from 'libraries';
 import { View, Text, Anchor, Image, Skeleton, Button } from 'components/atoms';
 import { callFeaturedPost } from 'services';
-import { isLocalhost } from 'utils';
+import { isLocalhost, getImage } from 'utils';
 
 const dummy = {
   title: 'Dokumentasi Simpel Template Black Clover',
@@ -22,14 +22,31 @@ class FeatureBlock extends React.PureComponent {
       title: '',
       image: '',
       description: '',
-      url: ''
+      url: '',
+      showImage: false
     };
   }
 
   componentDidMount() {
+    window.addEventListener('mousewheel', this.imageLoading);
+    window.addEventListener('touchmove', this.imageLoading);
     if (isLocalhost) return this.initDummy();
     this.init();
   }
+
+  componentWillUnmount() {
+    window.removeEventListener('mousewheel', this.imageLoading);
+    window.removeEventListener('touchmove', this.imageLoading);
+  }
+
+  imageLoading = () => {
+    const { showImage } = this.state;
+    if (!showImage) {
+      this.setState({
+        showImage: true
+      });
+    }
+  };
 
   initDummy = () => {
     this.setState(
@@ -102,7 +119,15 @@ class FeatureBlock extends React.PureComponent {
   };
 
   render() {
-    const { title, description, image, url, isLoading, isLoaded } = this.state;
+    const {
+      title,
+      description,
+      image,
+      url,
+      isLoading,
+      isLoaded,
+      showImage
+    } = this.state;
     return (
       <View className="o-feature-block__wrapper">
         <View className="o-feature-block__column">
@@ -111,7 +136,7 @@ class FeatureBlock extends React.PureComponent {
             {isLoaded && (
               <Image
                 className="o-feature-block__image"
-                source={image}
+                source={showImage ? getImage(image) : ''}
                 backgroundImage
                 resizeMode="cover"
                 title={title}

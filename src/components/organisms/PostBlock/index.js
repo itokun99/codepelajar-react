@@ -12,12 +12,15 @@ class FeatureBlock extends React.PureComponent {
       isLoading: false,
       isLoaded: false,
       nextToken: null,
+      showImage: false,
       posts: []
     };
   }
 
   componentDidMount() {
     this.init();
+    window.addEventListener('mousewheel', this.imageLoading);
+    window.addEventListener('touchmove', this.imageLoading);
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -30,6 +33,11 @@ class FeatureBlock extends React.PureComponent {
       return false;
     }
     return true;
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('mousewheel', this.imageLoading);
+    window.removeEventListener('touchmove', this.imageLoading);
   }
 
   init = async () => {
@@ -60,6 +68,15 @@ class FeatureBlock extends React.PureComponent {
       this.setState({
         isLoading: false,
         isLoaded: true
+      });
+    }
+  };
+
+  imageLoading = () => {
+    const { showImage } = this.state;
+    if (!showImage) {
+      this.setState({
+        showImage: true
       });
     }
   };
@@ -128,7 +145,7 @@ class FeatureBlock extends React.PureComponent {
     ));
 
   render() {
-    const { posts, isLoading, isLoaded } = this.state;
+    const { posts, isLoading, isLoaded, showImage } = this.state;
     return (
       <View className="o-post-block__wrapper">
         <View className="o-post-block__row">
@@ -138,7 +155,9 @@ class FeatureBlock extends React.PureComponent {
                 <PostCard
                   url={post.url}
                   title={post.title}
-                  image={getImage(_.get(post, 'images[0].url', ''))}
+                  image={
+                    showImage ? getImage(_.get(post, 'images[0].url', '')) : ''
+                  }
                   author={createAuthor(post.author)}
                   label={post.labels}
                 />

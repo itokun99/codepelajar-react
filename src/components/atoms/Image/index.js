@@ -14,14 +14,13 @@ const Image = ({
   ...props
 }) => {
   if (backgroundImage) {
-    const imageStyleObj = { backgroundImage: `url(${source})` };
     return (
       <div
         title={title}
         alt={alt}
         className={className}
         style={{
-          ...imageStyleObj,
+          ...(source && { backgroundImage: `url(${source})` }),
           ...(width && width),
           ...(height && height),
           ...(resizeMode && { backgroundSize: resizeMode }),
