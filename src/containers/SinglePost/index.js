@@ -1,13 +1,6 @@
-import { React } from 'libraries';
+import React from 'react';
+import { Section } from 'components';
 
-class SinglePost extends React.Component {
-  render() {
-    return (
-      <React.Fragment>
-        <h1>Single Post</h1>
-      </React.Fragment>
-    );
-  }
-}
+const SinglePost = () => <Section className="single-post-section" />;
 
 export default SinglePost;

@@ -1,46 +1,10 @@
 {
   "extends": [
-    "wesbos"
+    "react-app",
+    "react-app/jest"
   ],
-  "settings": {
-    "import/resolver": {
-      "node": {
-        "paths": [
-          "src"
-        ],
-        "extensions": [
-          ".js"
-        ]
-      }
-    }
-  },
   "rules": {
-    "prettier/prettier": [
-      "error",
-      {
-        "singleQuote": true,
-        "tabWidth": 2
-      }
-    ],
-    "import/no-extraneous-dependencies": "off",
-    "import/named": "off",
-    "react/prop-types": [
-      "error",
-      {
-        "ignore": [
-          "navigation",
-          "screenProps"
-        ]
-      }
-    ],
-    "no-console": [
-      "warn",
-      {
-        "allow": [
-          "warn",
-          "error"
-        ]
-      }
-    ]
+    "react/react-in-jsx-scope": "off",
+    "no-console": "warn"
   }
 }
