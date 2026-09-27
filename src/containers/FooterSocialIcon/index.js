@@ -1,10 +1,6 @@
-import { React } from 'libraries';
-import { Section, FooterSocialBlock } from 'components';
+import React from 'react';
+import { FooterSocialBlock } from 'components';
 
-class FooterSocialIcon extends React.Component {
-  render() {
-    return <FooterSocialBlock />;
-  }
-}
+const FooterSocialIcon = () => <FooterSocialBlock />;
 
 export default FooterSocialIcon;

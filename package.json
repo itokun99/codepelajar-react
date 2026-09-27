@@ -1,47 +1,40 @@
 {
   "name": "codepelajarreact",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
-    "axios": "^0.19.0",
-    "classnames": "^2.2.6",
-    "lodash": "^4.17.15",
-    "moment": "^2.24.0",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-icons": "^3.8.0",
-    "react-scripts": "3.2.0"
+    "axios": "^1.6.0",
+    "classnames": "^2.3.2",
+    "lodash": "^4.17.21",
+    "moment": "^2.29.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-icons": "^4.12.0",
+    "react-router-dom": "^6.21.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.50.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-import": "^2.28.1",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-prettier": "^5.0.0",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "prettier": "^3.1.0",
+    "react-scripts": "5.0.1",
+    "sass": "^1.105.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "build-rename": "yarn build-rename-js && yarn build-rename-css",
-    "build-rename-js": "renamer -f 'main\\.[^\\.]+\\.js' --replace 'main.js' build/static/js/*.js",
-    "build-rename-css": "renamer -f 'main\\.[^\\.]+\\.css' --replace 'main.css' build/static/css/*.css"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "extends": "react-app"
-  },
-  "devDependencies": {
-    "eslint": "^6.1.0",
-    "eslint-config-airbnb": "^17.1.0",
-    "eslint-config-prettier": "^4.1.0",
-    "eslint-config-wesbos": "0.0.19",
-    "eslint-plugin-html": "^6.0.0",
-    "eslint-plugin-import": "^2.16.0",
-    "eslint-plugin-jsx-a11y": "^6.2.1",
-    "eslint-plugin-prettier": "^3.0.1",
-    "eslint-plugin-react": "^7.12.4",
-    "eslint-plugin-react-hooks": "^1.3.0",
-    "node-sass": "^4.13.0",
-    "prettier": "^1.16.4",
-    "react-scripts": "^3.0.1",
-    "redux-devtools-extension": "^2.13.8",
-    "renamer": "^1.1.4",
-    "sass-loader": "^8.0.0",
-    "wesbos": "^1.0.1"
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
   },
   "browserslist": {
     "production": [

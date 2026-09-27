@@ -1,4 +1,4 @@
-import { React } from 'libraries';
+import { useState, useEffect } from 'react';
 import { View, Text, Anchor, Image, Skeleton, Button } from 'components/atoms';
 import { callFeaturedPost } from 'services';
 import { isLocalhost, getImage } from 'utils';
@@ -13,164 +13,112 @@ const dummy = {
     'https://nextcodepelajar.blogspot.com/2018/08/dokumentasi-simpel-template-black-clover.html'
 };
 
-class FeatureBlock extends React.PureComponent {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isLoading: false,
-      isLoaded: false,
-      title: '',
-      image: '',
-      description: '',
-      url: '',
-      showImage: false
+const FeatureBlock = () => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [title, setTitle] = useState('');
+  const [image, setImage] = useState('');
+  const [description, setDescription] = useState('');
+  const [url, setUrl] = useState('');
+  const [showImage, setShowImage] = useState(false);
+
+  useEffect(() => {
+    const handleWheel = () => setShowImage(prev => prev || false);
+    window.addEventListener('mousewheel', handleWheel);
+    window.addEventListener('touchmove', handleWheel);
+    return () => {
+      window.removeEventListener('mousewheel', handleWheel);
+      window.removeEventListener('touchmove', handleWheel);
     };
-  }
+  }, []);
 
-  componentDidMount() {
-    window.addEventListener('mousewheel', this.imageLoading);
-    window.addEventListener('touchmove', this.imageLoading);
-    if (isLocalhost) return this.initDummy();
-    this.init();
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('mousewheel', this.imageLoading);
-    window.removeEventListener('touchmove', this.imageLoading);
-  }
-
-  imageLoading = () => {
-    const { showImage } = this.state;
-    if (!showImage) {
-      this.setState({
-        showImage: true
-      });
+  useEffect(() => {
+    if (isLocalhost) {
+      setTimeout(() => {
+        setTitle(dummy.title);
+        setDescription(dummy.description);
+        setImage(dummy.image);
+        setUrl(dummy.url);
+        setIsLoading(false);
+        setIsLoaded(true);
+      }, 3000);
+      return;
     }
-  };
+    init();
+  }, []);
 
-  initDummy = () => {
-    this.setState(
-      {
-        isLoading: true
-      },
-      () => {
-        setTimeout(() => {
-          this.setState({
-            ...dummy,
-            isLoading: false,
-            isLoaded: true
-          });
-        }, 3000);
-      }
-    );
-  };
-
-  init = async () => {
+  const init = async () => {
     try {
-      await this.setState({ isLoading: true });
+      setIsLoading(true);
       const data = await callFeaturedPost();
-      await this.setState({
-        ...data,
-        isLoading: false,
-        isLoaded: true
-      });
+      setTitle(data.title);
+      setDescription(data.description);
+      setImage(data.image);
+      setUrl(data.url);
+      setIsLoading(false);
+      setIsLoaded(true);
     } catch (err) {
-      this.setState({
-        isLoading: false
-      });
+      setIsLoading(false);
     }
   };
 
-  renderSkeleton = type => {
+  const renderSkeleton = type => {
     if (type === 'text') {
       return (
-        <React.Fragment>
-          <Skeleton
-            style={{ width: '100%', paddingBottom: 40, marginBottom: 32 }}
-          />
-          <Skeleton
-            style={{ width: '60%', paddingBottom: 25, marginBottom: 14 }}
-          />
-          <Skeleton
-            style={{ width: '100%', paddingBottom: 25, marginBottom: 14 }}
-          />
-          <Skeleton
-            style={{ width: '80%', paddingBottom: 25, marginBottom: 14 }}
-          />
-          <Skeleton
-            style={{ width: '40%', paddingBottom: 25, marginBottom: 60 }}
-          />
-          <Skeleton
-            style={{ width: '40%', paddingBottom: 60, marginBottom: 14 }}
-          />
-        </React.Fragment>
+        <>
+          <Skeleton style={{ width: '100%', paddingBottom: 40, marginBottom: 32 }} />
+          <Skeleton style={{ width: '60%', paddingBottom: 25, marginBottom: 14 }} />
+          <Skeleton style={{ width: '100%', paddingBottom: 25, marginBottom: 14 }} />
+          <Skeleton style={{ width: '80%', paddingBottom: 25, marginBottom: 14 }} />
+          <Skeleton style={{ width: '40%', paddingBottom: 25, marginBottom: 60 }} />
+          <Skeleton style={{ width: '40%', paddingBottom: 60, marginBottom: 14 }} />
+        </>
       );
     }
     if (type === 'image') {
-      return (
-        <Skeleton
-          style={{
-            width: '100%',
-            paddingBottom: '80%'
-          }}
-        />
-      );
+      return <Skeleton style={{ width: '100%', paddingBottom: '80%' }} />;
     }
   };
 
-  render() {
-    const {
-      title,
-      description,
-      image,
-      url,
-      isLoading,
-      isLoaded,
-      showImage
-    } = this.state;
-    return (
-      <View className="o-feature-block__wrapper">
-        <View className="o-feature-block__column">
-          <View className="o-feature-block__inner">
-            {isLoading && this.renderSkeleton('image')}
-            {isLoaded && (
-              <Image
-                className="o-feature-block__image"
-                source={showImage ? getImage(image) : ''}
-                backgroundImage
-                resizeMode="cover"
-                title={title}
-                alt={title}
-              />
-            )}
-          </View>
-        </View>
-        <View className="o-feature-block__column">
-          <View className="o-feature-block__inner o-feature-block__inner--text">
-            {isLoading && this.renderSkeleton('text')}
-            {isLoaded && (
-              <React.Fragment>
-                <Anchor href={url} title={title}>
-                  <Text tag="h2" className="o-feature-block__title">
-                    {title}
-                  </Text>
-                </Anchor>
-                <Text
-                  className="o-feature-block__description"
-                  style={{ marginBottom: 40 }}
-                >
-                  {description}
-                </Text>
-                <Button variant="primary" anchor href={url} title={title}>
-                  Read More
-                </Button>
-              </React.Fragment>
-            )}
-          </View>
+  return (
+    <View className="o-feature-block__wrapper">
+      <View className="o-feature-block__column">
+        <View className="o-feature-block__inner">
+          {isLoading && renderSkeleton('image')}
+          {isLoaded && (
+            <Image
+              className="o-feature-block__image"
+              source={showImage ? getImage(image) : ''}
+              backgroundImage
+              resizeMode="cover"
+              title={title}
+              alt={title}
+            />
+          )}
         </View>
       </View>
-    );
-  }
-}
+      <View className="o-feature-block__column">
+        <View className="o-feature-block__inner o-feature-block__inner--text">
+          {isLoading && renderSkeleton('text')}
+          {isLoaded && (
+            <>
+              <Anchor href={url} title={title}>
+                <Text tag="h2" className="o-feature-block__title">
+                  {title}
+                </Text>
+              </Anchor>
+              <Text className="o-feature-block__description" style={{ marginBottom: 40 }}>
+                {description}
+              </Text>
+              <Button variant="primary" anchor href={url} title={title}>
+                Read More
+              </Button>
+            </>
+          )}
+        </View>
+      </View>
+    </View>
+  );
+};
 
 export default FeatureBlock;
