@@ -28,7 +28,11 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "blogger:update": "node scripts/blogger-update.mjs",
+    "blogger:update:cli": "node scripts/blogger-update.mjs --force",
+    "blogger:update:preview": "node scripts/blogger-update.mjs --preview",
+    "blogger:update:json": "node scripts/blogger-update.mjs --json"
   },
   "eslintConfig": {
     "extends": [
